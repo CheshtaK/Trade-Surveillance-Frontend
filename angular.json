@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "trade-surveillance"
+    }
+  },
+  "defaultProject": "trade-surveillance",
+  "cli": {
+    "analytics": "6fc82e0d-132b-4e9d-8ac9-cadc1565649a"
+  }
 }

@@ -1,1 +1,32 @@
-<p>sidebar works!</p>
+<mat-nav-list>
+    <div class="profile-card">
+        <div class="header">
+            <h2>Cheshta Kwatra</h2>
+            <h4>cheshta.kwatra@gmail.com</h4>
+        </div>
+        <img src="https://www.roaring.io/wp-content/uploads/2019/02/vision-icon-roar-colors-1-300x300.png"
+                alt="logo">
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Pages</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">Dashboard</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">Posts</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">Articles</a>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Tools</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+        <mat-icon>import_contacts</mat-icon>
+        Contacts
+    </a>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+        <mat-icon>contact_phone</mat-icon>
+        Leads
+    </a>
+</mat-nav-list>

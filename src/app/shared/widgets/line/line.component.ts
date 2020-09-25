@@ -15,18 +15,31 @@ export class LineComponent implements OnInit {
 
   ngOnInit(): void {
     this.chartOptions = {
+      chart: {
+        backgroundColor: null,
+        borderWidth: 0
+      },
 
       title: {
-          text: 'Random data'
+          text: 'Random data',
+          style: {
+            color: '#FFFFFF',
+          }
       },
   
       subtitle: {
-          text: 'More random data'
+          text: 'More random data',
+          style: {
+            color: '#FFFFFF',
+          }
       },
       legend: {
           layout: 'vertical',
           align: 'right',
-          verticalAlign: 'middle'
+          verticalAlign: 'middle',
+          itemStyle: {
+            color: '#FFFFFF',
+          }
       },
       
       exporting: {

@@ -12,14 +12,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { LineComponent } from './widgets/line/line.component';
 import { HighchartsChartModule } from 'highcharts-angular';
-
+import { TableComponent } from './widgets/table/table.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    LineComponent
+    LineComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,
@@ -29,13 +31,15 @@ import { HighchartsChartModule } from 'highcharts-angular';
     MatButtonModule,
     MatListModule,
     RouterModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    MatTableModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    LineComponent
+    LineComponent,
+    TableComponent
   ]
 })
 export class SharedModule { }

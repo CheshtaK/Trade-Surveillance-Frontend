@@ -2,3 +2,8 @@ table {
     width: 100%;
 }
   
+.container {
+    height: 225px;
+    width: 100%;
+    overflow: auto;
+}

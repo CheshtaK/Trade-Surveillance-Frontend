@@ -1,32 +1,43 @@
-<mat-nav-list>
-    <div class="profile-card">
-        <div class="header">
-            <h2>Cheshta Kwatra</h2>
-            <h4>cheshta.kwatra@gmail.com</h4>
-        </div>
-        <img src="https://www.roaring.io/wp-content/uploads/2019/02/vision-icon-roar-colors-1-300x300.png"
-                alt="logo">
-    </div>
+<mat-accordion class="example-headers-align">
+  <!-- <section class="nav-item">Line chart</section>
+  <section class="nav-item">Bar chart</section> -->
+  <div class="charts">
+    <mat-nav-list (click)="showLineChart()" class="lable-chart">
+      <a mat-list-item>
+        <span matLine><p>Line chart</p> </span>
+        <mat-icon>show_chart</mat-icon>
+      </a>
+    </mat-nav-list>
+    <mat-nav-list (click)="showHistogram()" class="lable-chart">
+      <a mat-list-item>
+        <span matLine><p>Histogram</p></span>
+        <mat-icon>bar_chart</mat-icon>
+      </a>
+    </mat-nav-list>
+  </div>
 
-    <mat-divider></mat-divider>
-
-    <h2 matSubheader>Pages</h2>
-
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">Dashboard</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">Posts</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">Articles</a>
-
-    <mat-divider></mat-divider>
-
-    <h2 matSubheader>Tools</h2>
-
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
-        <mat-icon>import_contacts</mat-icon>
-        Contacts
+  <mat-expansion-panel
+    class="add-new-tx nav-item"
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+  >
+    <mat-expansion-panel-header class="expansion-header">
+      <mat-panel-title><p>Add</p></mat-panel-title>
+      <!-- <mat-panel-description> Add </mat-panel-description> -->
+    </mat-expansion-panel-header>
+    <app-addpanel></app-addpanel>
+  </mat-expansion-panel>
+  <mat-nav-list (click)="detectWashTrades()">
+    <a mat-list-item>
+      <span matLine><p>Detect</p></span>
+      <mat-icon>search</mat-icon>
     </a>
+  </mat-nav-list>
 
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
-        <mat-icon>contact_phone</mat-icon>
-        Leads
+  <mat-nav-list (click)="showAboutPage()" class="about">
+    <a mat-list-item>
+      <span matLine><p>About</p></span>
+      <mat-icon>help_outline</mat-icon>
     </a>
-</mat-nav-list>
+  </mat-nav-list>
+</mat-accordion>

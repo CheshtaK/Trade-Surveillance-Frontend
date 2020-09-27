@@ -1,0 +1,17 @@
+:host{
+    padding: 20px;
+}
+
+.pdf_btn{
+    padding: 10px;
+    color: tomato;
+}
+
+.excel_btn{
+    padding: 10px;
+    color: palegreen;
+}
+
+.dashboard_btn{
+    padding: 10px;
+}

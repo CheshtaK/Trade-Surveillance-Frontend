@@ -12,8 +12,8 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  detectWashTrades(): void {
-    console.log('Call detect washtrades');
+  detectFrontRunning(): void {
+    console.log('Call detect front running');
   }
   showHistogram(): void {
     console.log('show histogram panel');

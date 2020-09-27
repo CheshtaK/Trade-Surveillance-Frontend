@@ -1,0 +1,82 @@
+<form [formGroup]="newTrade" (ngSubmit)="getNewTrade()">
+  <div class="time-type-row">
+    <mat-form-field>
+      <mat-label>Time</mat-label>
+      <input matInput placeholder="HH:MM:SS" formControlName="time" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select required formControlName="type">
+        <mat-option>-- None --</mat-option>
+        <mat-option value="Buy">Buy</mat-option>
+        <mat-option value="Sell">Sell</mat-option>
+      </mat-select>
+      <mat-label>Type</mat-label>
+    </mat-form-field>
+  </div>
+  <div class="securities-row">
+    <mat-form-field>
+      <mat-select required formControlName="securityType">
+        <mat-option>-- None --</mat-option>
+        <mat-option value="Equity shares">Equity shares</mat-option>
+        <mat-option value="Call option">Call option</mat-option>
+        <mat-option value="Put option">Put option</mat-option>
+        <mat-option value="Futures">Futures</mat-option>
+      </mat-select>
+      <mat-label>Security Type</mat-label>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select required formControlName="security">
+        <mat-option>-- None --</mat-option>
+        <mat-option value="Facebook">Facebook</mat-option>
+        <mat-option value="Apple">Apple</mat-option>
+        <mat-option value="Wallmart">Wallmart</mat-option>
+      </mat-select>
+      <mat-label>Security</mat-label>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Quantity</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="Ex. 200"
+      required
+      formControlName="quantity"
+    />
+    <mat-error *ngIf="quantity.invalid">
+      Price can not be less than 0
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Total Price</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="Ex. 200"
+      required
+      formControlName="totalPrice"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select required formControlName="brokerName">
+      <mat-option>-- None --</mat-option>
+      <mat-option value="One">One</mat-option>
+      <mat-option value="Two">Two</mat-option>
+      <mat-option value="Three">Three</mat-option>
+    </mat-select>
+    <mat-label>Broker Name</mat-label>
+  </mat-form-field>
+
+  <button
+    class="add-trade-btn"
+    type="submit"
+    mat-fab
+    color="accent"
+    aria-label="Example icon button with a bookmark icon"
+    [disabled]="newTrade.invalid"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</form>

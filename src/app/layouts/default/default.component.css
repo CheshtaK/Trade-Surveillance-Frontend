@@ -1,7 +1,7 @@
-:host{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 /* .unscrollable{
@@ -12,14 +12,18 @@
     position: absolute;
 } */
 
-mat-drawer{
-    width: 275px;
+mat-drawer {
+  width: 300px;
 }
 
-mat-drawer-container{
-    height: 100%;
+mat-drawer-container {
+  height: 100%;
 }
 
-mat-drawer-content{
-    padding: 20px;
+.example{
+  height: 50%;
+}
+
+mat-drawer-content {
+  padding: 20px;
 }

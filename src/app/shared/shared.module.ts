@@ -15,6 +15,17 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { TableComponent } from './widgets/table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { HistogramComponent } from './widgets/histogram/histogram.component';
+import { AddpanelComponent } from './components/addpanel/addpanel.component';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -23,7 +34,8 @@ import { HistogramComponent } from './widgets/histogram/histogram.component';
     SidebarComponent,
     LineComponent,
     TableComponent,
-    HistogramComponent
+    HistogramComponent,
+    AddpanelComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +46,17 @@ import { HistogramComponent } from './widgets/histogram/histogram.component';
     MatListModule,
     RouterModule,
     HighchartsChartModule,
-    MatTableModule
+    MatTableModule,
+    FlexLayoutModule,
+    MatMenuModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSidenavModule,
+    MatSelectModule,
+    MatInputModule,
+    MatCardModule
   ],
   exports: [
     HeaderComponent,
@@ -42,7 +64,7 @@ import { HistogramComponent } from './widgets/histogram/histogram.component';
     SidebarComponent,
     LineComponent,
     TableComponent,
-    HistogramComponent
+    HistogramComponent,
   ]
 })
-export class SharedModule { }
+export class SharedModule {}

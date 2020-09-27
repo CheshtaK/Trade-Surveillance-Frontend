@@ -17,7 +17,7 @@ export class LineComponent implements OnInit {
     this.chartOptions = {
       chart: {
         backgroundColor: null,
-        borderWidth: 0
+        borderWidth: 0,
       },
 
       title: {

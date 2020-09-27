@@ -14,6 +14,7 @@ import { LineComponent } from './widgets/line/line.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { TableComponent } from './widgets/table/table.component';
 import { MatTableModule } from '@angular/material/table';
+import { HistogramComponent } from './widgets/histogram/histogram.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MatTableModule } from '@angular/material/table';
     FooterComponent,
     SidebarComponent,
     LineComponent,
-    TableComponent
+    TableComponent,
+    HistogramComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { MatTableModule } from '@angular/material/table';
     FooterComponent,
     SidebarComponent,
     LineComponent,
-    TableComponent
+    TableComponent,
+    HistogramComponent
   ]
 })
 export class SharedModule { }

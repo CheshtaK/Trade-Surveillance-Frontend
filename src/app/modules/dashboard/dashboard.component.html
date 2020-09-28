@@ -1,9 +1,26 @@
 <div *ngIf="line">
-    <app-widget-line></app-widget-line>
+  <app-widget-line></app-widget-line>
 </div>
 <div *ngIf="!line">
-    <app-widget-histogram></app-widget-histogram>
+  <app-widget-histogram></app-widget-histogram>
 </div>
+<mat-divider></mat-divider>
+<div class="refresh">
+  <h3>
+    Trades Table
+  </h3>
 
-<app-widget-table [displayedColumns]="displayedColumns" [dataSource]="dataSource"></app-widget-table>
-
+  <button
+    mat-raised-button
+    (click)="refreshTable()"
+    class="refresh-btn"
+    color="accent"
+    matTooltip="Generate new trades"
+  >
+    Refresh
+  </button>
+</div>
+<app-widget-table
+  [displayedColumns]="displayedColumns"
+  [dataSource]="dataSource"
+></app-widget-table>

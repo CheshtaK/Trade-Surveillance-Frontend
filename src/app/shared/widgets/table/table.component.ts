@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-widget-table',
@@ -6,7 +6,6 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent {
-
   @Input()
   displayedColumns: string[];
 

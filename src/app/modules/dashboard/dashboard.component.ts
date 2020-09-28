@@ -2,6 +2,7 @@ import { TradeService } from '../../services/trade.service';
 
 import { GraphService } from './../../graph.service';
 import { Component, OnInit } from '@angular/core';
+
 import { Trade } from '../../models/Trade';
 
 @Component({
@@ -41,5 +42,10 @@ export class DashboardComponent implements OnInit {
     this.graph.currentHistogram.subscribe(
       histogram => (this.histogram = histogram)
     );
+  }
+
+  refreshTable(): void {
+    console.log('refresh table data');
+    this.dataSource = this.tradeService.getTrades();
   }
 }

@@ -25,8 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -36,9 +36,7 @@ import {MatCardModule} from '@angular/material/card';
     LineComponent,
     TableComponent,
     HistogramComponent,
-    AddpanelComponent,
-   
-    
+    AddpanelComponent
   ],
   imports: [
     CommonModule,
@@ -59,7 +57,8 @@ import {MatCardModule} from '@angular/material/card';
     MatSidenavModule,
     MatSelectModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatTooltipModule
   ],
   exports: [
     HeaderComponent,
@@ -68,8 +67,7 @@ import {MatCardModule} from '@angular/material/card';
     LineComponent,
     TableComponent,
     HistogramComponent,
-    AddpanelComponent,
-  
+    AddpanelComponent
   ]
 })
 export class SharedModule {}

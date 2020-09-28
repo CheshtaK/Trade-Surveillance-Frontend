@@ -1,3 +1,23 @@
 h1 {
   text-align: center;
 }
+
+h3 {
+  margin-bottom: 1px;
+}
+
+.refresh {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* justify-content: space-between; */
+}
+
+.refresh-btn {
+  transform: scale(0.65);
+  margin-left: 80%;
+  position: absolute;
+  margin-left: 90%;
+  margin-bottom: 5px;
+}

@@ -10,9 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutComponent } from './modules/about/about.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-
-import { ScenarioComponent } from './modules/scenario/scenario.component';
-
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   declarations: [AppComponent, HomeComponent, AboutComponent],
   imports: [
@@ -22,7 +21,9 @@ import { ScenarioComponent } from './modules/scenario/scenario.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

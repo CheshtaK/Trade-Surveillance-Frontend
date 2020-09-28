@@ -22,17 +22,21 @@ export class SidebarComponent implements OnInit {
     console.log('Call detect front running');
   }
 
-  toggleGraph(){
-    console.log('toggle graph');
-    this.graph.changeGraph(!this.line);
+  // toggleGraph(){
+  //   console.log('toggle graph');
+  //   this.graph.changeGraph(this.line);
+  // }
+  
+  showHistogram(): void {
+    console.log('show histogram panel');
+    this.graph.changeGraph(false, true);
   }
   
-  // showHistogram(): void {
-  //   console.log('show histogram panel');
-  // }
-  // showLineChart(): void {
-  //   console.log('show linechart panel');
-  // }
+  showLineChart(): void {
+    console.log('show linechart panel');
+    this.graph.changeGraph(true, false);
+  }
+  
   showAboutPage(): void {
     console.log('show about Page');
   }

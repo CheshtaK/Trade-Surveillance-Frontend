@@ -9,13 +9,13 @@
       <!-- <section class="nav-item">Line chart</section>
       <section class="nav-item">Bar chart</section> -->
       <div class="charts">
-        <mat-nav-list class="lable-chart" (click)="toggleGraph()">
+        <mat-nav-list class="lable-chart" (click)="showLineChart()">
           <a mat-list-item matLine>
             <span><p class="label-nav">Line chart</p> </span>
             <mat-icon>show_chart</mat-icon>
           </a>
         </mat-nav-list>
-        <mat-nav-list class="lable-chart" (click)="toggleGraph()">
+        <mat-nav-list class="lable-chart" (click)="showHistogram()">
           <a mat-list-item matLine>
             <span><p class="label-nav">Histogram</p></span>
             <mat-icon>bar_chart</mat-icon>
@@ -47,7 +47,6 @@
 
   <div class="about">
     <mat-nav-list>
-      <!-- (click)="showAboutPage()"  -->
       <a mat-list-item [routerLink]="['/dashboard/about']">
         <span matLine><p class="label-nav">About</p></span>
         <mat-icon>help_outline</mat-icon>

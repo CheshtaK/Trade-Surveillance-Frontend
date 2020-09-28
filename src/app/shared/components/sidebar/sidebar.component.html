@@ -1,6 +1,11 @@
 <mat-accordion class="example-headers-align">
   <div class="side-nav-logo">
-    <img class="logo" src="../../../../assets/img/logo.png" alt="Logo" />
+    <img
+      [routerLink]="['/dashboard']"
+      class="logo"
+      src="../../../../assets/img/logo.png"
+      alt="Logo"
+    />
   </div>
   <!-- <section class="nav-item">Line chart</section>
   <section class="nav-item">Bar chart</section> -->
@@ -30,11 +35,8 @@
     </mat-expansion-panel-header>
     <app-addpanel></app-addpanel>
   </mat-expansion-panel>
-  <mat-nav-list
-    (click)="detectFrontRunning()"
-    [routerLink]="['/dashboard/detect']"
-  >
-    <a mat-list-item>
+  <mat-nav-list (click)="detectFrontRunning()">
+    <a mat-list-item [routerLink]="['/dashboard/detect']">
       <span matLine><p class="label-nav">Detect</p></span>
       <mat-icon>search</mat-icon>
     </a>

@@ -1,3 +1,4 @@
+import { GraphService } from './../../graph.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,9 +12,12 @@ export class DashboardComponent implements OnInit {
                                   'quantity', 'price'];
   dataSource = ELEMENT_DATA;
   
-  constructor() { }
+  line: boolean;
+
+  constructor(private graph: GraphService) {}
 
   ngOnInit(): void {
+    this.graph.currentLine.subscribe(line => this.line = line);
   }
 
 }

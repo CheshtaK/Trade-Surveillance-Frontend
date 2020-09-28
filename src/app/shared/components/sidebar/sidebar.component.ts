@@ -1,3 +1,4 @@
+import { GraphService } from './../../../graph.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,21 +10,29 @@ import { Router } from '@angular/router';
 export class SidebarComponent implements OnInit {
   panelOpenState = false;
 
-  constructor(private router: Router) {}
+  line: boolean;
 
-  ngOnInit(): void {}
+  constructor(private graph: GraphService) {}
+
+  ngOnInit(): void {
+    this.graph.currentLine.subscribe(line => this.line = line);
+  }
 
   detectFrontRunning(): void {
     console.log('Call detect front running');
   }
-  showHistogram(): void {
-    console.log('show histogram panel');
-    this.router.navigate(['dashboard/histogram']);
+
+  toggleGraph(){
+    console.log('toggle graph');
+    this.graph.changeGraph(!this.line);
   }
-  showLineChart(): void {
-    console.log('show linechart panel');
-    this.router.navigate(['dashboard/line']);
-  }
+  
+  // showHistogram(): void {
+  //   console.log('show histogram panel');
+  // }
+  // showLineChart(): void {
+  //   console.log('show linechart panel');
+  // }
   showAboutPage(): void {
     console.log('show about Page');
   }

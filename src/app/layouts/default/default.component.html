@@ -1,17 +1,15 @@
-<app-header></app-header>
+<!-- <app-header></app-header> -->
 <!-- (toggleSideBarForMe)="sideBarToggler()" -->
 
 <mat-drawer-container>
-    <mat-drawer mode="side" [opened]="sideBarOpen">
-        <app-sidebar></app-sidebar>
-    </mat-drawer>
-   
-    <mat-drawer-content>
-       <router-outlet></router-outlet> 
-        <!-- <app-widget-table></app-widget-table> -->
-    </mat-drawer-content>
-    
+  <mat-drawer mode="side" [opened]="sideBarOpen">
+    <app-sidebar></app-sidebar>
+  </mat-drawer>
 
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+    <!-- <app-widget-table></app-widget-table> -->
+  </mat-drawer-content>
 </mat-drawer-container>
 
 <!-- <app-footer></app-footer> -->

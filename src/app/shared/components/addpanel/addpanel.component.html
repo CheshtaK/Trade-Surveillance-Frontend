@@ -16,6 +16,15 @@
   </div>
   <div class="securities-row">
     <mat-form-field>
+      <mat-select required formControlName="security">
+        <mat-option>-- None --</mat-option>
+        <mat-option value="Facebook">Facebook</mat-option>
+        <mat-option value="Apple">Apple</mat-option>
+        <mat-option value="Wallmart">Wallmart</mat-option>
+      </mat-select>
+      <mat-label>Security</mat-label>
+    </mat-form-field>
+    <mat-form-field>
       <mat-select required formControlName="securityType">
         <mat-option>-- None --</mat-option>
         <mat-option value="Equity shares">Equity shares</mat-option>
@@ -24,15 +33,6 @@
         <mat-option value="Futures">Futures</mat-option>
       </mat-select>
       <mat-label>Security Type</mat-label>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-select required formControlName="security">
-        <mat-option>-- None --</mat-option>
-        <mat-option value="Facebook">Facebook</mat-option>
-        <mat-option value="Apple">Apple</mat-option>
-        <mat-option value="Wallmart">Wallmart</mat-option>
-      </mat-select>
-      <mat-label>Security</mat-label>
     </mat-form-field>
   </div>
 

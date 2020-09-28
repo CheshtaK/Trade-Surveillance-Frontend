@@ -34,7 +34,7 @@
           >
           <!-- <mat-panel-description> Add </mat-panel-description> -->
         </mat-expansion-panel-header>
-        <app-addpanel></app-addpanel>
+        <app-addpanel (addTrade)="addTrade($event)"></app-addpanel>
       </mat-expansion-panel>
       <mat-nav-list (click)="detectFrontRunning()">
         <a mat-list-item [routerLink]="['/dashboard/detect']">

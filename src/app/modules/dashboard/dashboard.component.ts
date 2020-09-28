@@ -1,5 +1,8 @@
+import { TradeService } from '../../services/trade.service';
+
 import { GraphService } from './../../graph.service';
 import { Component, OnInit } from '@angular/core';
+import { Trade } from '../../models/Trade';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,51 +10,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  dataSource: Trade[];
+  displayedColumns: string[] = [
+    'trade_id',
+    'trade_dt',
+    'trade_type',
+    'trader',
+    'security',
+    'security_type',
+    'quantity',
+    'price'
+  ];
+  // dataSource = ELEMENT_DATA;
 
-  displayedColumns: string[] = ['trade_id', 'trade_dt', 'trade_type', 'trader', 'security', 'security_type', 
-                                  'quantity', 'price'];
-  dataSource = ELEMENT_DATA;
-  
   line: boolean;
   histogram: boolean;
 
-  constructor(private graph: GraphService) {}
+  constructor(
+    private graph: GraphService,
+    private tradeService: TradeService
+  ) {}
 
   ngOnInit(): void {
-    this.graph.currentLine.subscribe(line => this.line = line);
-    this.graph.currentHistogram.subscribe(histogram => this.histogram = histogram);
+    // code to be replaced once api is done
+    // this.tradeService.getTrades().subscribe((trades) => {
+    // this.dataSource = trades;
+
+    this.dataSource = this.tradeService.getTrades();
+    this.graph.currentLine.subscribe(line => (this.line = line));
+    this.graph.currentHistogram.subscribe(
+      histogram => (this.histogram = histogram)
+    );
   }
-
 }
-
-export interface PeriodicElement {
-  trade_id: number;
-  trade_dt: string;
-  trade_type: string;
-  trader: string;
-  security: string;
-  security_type: string;
-  quantity: number;
-  price: number
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-  {trade_id: 1, trade_dt: '10-23-04', trade_type: 'sell', trader: 'Citi', security: 'Facebook', security_type: 'Equity Shares', quantity: 1000, price: 8222},
-];
-

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Trade } from '../../../models/Trade';
 @Component({
   selector: 'app-addpanel',
   templateUrl: './addpanel.component.html',
@@ -7,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddpanelComponent implements OnInit {
   newTrade: FormGroup;
+  @Output() addTrade: EventEmitter<any> = new EventEmitter();
 
   constructor(private fb: FormBuilder) {}
 
@@ -32,6 +34,8 @@ export class AddpanelComponent implements OnInit {
   // works on form submit
   getNewTrade(): void {
     console.log('called', this.newTrade.value);
+    const trade = this.newTrade.value;
+    this.addTrade.emit(trade);
     this.resetForm(this.newTrade);
   }
 

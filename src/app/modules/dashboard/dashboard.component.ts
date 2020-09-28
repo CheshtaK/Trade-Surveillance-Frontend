@@ -13,11 +13,13 @@ export class DashboardComponent implements OnInit {
   dataSource = ELEMENT_DATA;
   
   line: boolean;
+  histogram: boolean;
 
   constructor(private graph: GraphService) {}
 
   ngOnInit(): void {
     this.graph.currentLine.subscribe(line => this.line = line);
+    this.graph.currentHistogram.subscribe(histogram => this.histogram = histogram);
   }
 
 }

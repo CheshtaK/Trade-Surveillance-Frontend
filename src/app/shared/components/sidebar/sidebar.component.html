@@ -1,52 +1,56 @@
-<mat-accordion class="example-headers-align">
-  <div class="side-nav-logo">
-    <img
-      [routerLink]="['/']"
-      class="logo"
-      src="../../../../assets/img/logo.png"
-      alt="Logo"
-    />
-  </div>
-  <!-- <section class="nav-item">Line chart</section>
-  <section class="nav-item">Bar chart</section> -->
-  <div class="charts">
-    <mat-nav-list class="lable-chart" (click)="toggleGraph()">
-      <a mat-list-item matLine>
-        <span><p class="label-nav">Line chart</p> </span>
-        <mat-icon>show_chart</mat-icon>
-      </a>
-    </mat-nav-list>
-    <mat-nav-list class="lable-chart" (click)="toggleGraph()">
-      <a mat-list-item matLine>
-        <span><p class="label-nav">Histogram</p></span>
-        <mat-icon>bar_chart</mat-icon>
-      </a>
-    </mat-nav-list>
+<div class="sidenav">
+  <div class="content">
+    <mat-accordion class="example-headers-align">
+      <div class="side-nav-logo">
+        <a mat-list-item matLine [routerLink]="['/']">
+          <img class="logo" src="../../../../assets/img/logo.png" alt="Logo" />
+        </a>
+      </div>
+      <!-- <section class="nav-item">Line chart</section>
+      <section class="nav-item">Bar chart</section> -->
+      <div class="charts">
+        <mat-nav-list class="lable-chart" (click)="showLineChart()">
+          <a mat-list-item matLine>
+            <span><p class="label-nav">Line chart</p> </span>
+            <mat-icon>show_chart</mat-icon>
+          </a>
+        </mat-nav-list>
+        <mat-nav-list class="lable-chart" (click)="showHistogram()">
+          <a mat-list-item matLine>
+            <span><p class="label-nav">Histogram</p></span>
+            <mat-icon>bar_chart</mat-icon>
+          </a>
+        </mat-nav-list>
+      </div>
+
+      <mat-expansion-panel
+        class="add-new-tx nav-item"
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
+        <mat-expansion-panel-header class="expansion-header">
+          <mat-panel-title
+            ><p class="label-nav">Add New Trade</p></mat-panel-title
+          >
+          <!-- <mat-panel-description> Add </mat-panel-description> -->
+        </mat-expansion-panel-header>
+        <app-addpanel></app-addpanel>
+      </mat-expansion-panel>
+      <mat-nav-list (click)="detectFrontRunning()">
+        <a mat-list-item [routerLink]="['/dashboard/detect']">
+          <span matLine><p class="label-nav detect">Detect</p></span>
+          <mat-icon>search</mat-icon>
+        </a>
+      </mat-nav-list>
+    </mat-accordion>
   </div>
 
-  <mat-expansion-panel
-    class="add-new-tx nav-item"
-    (opened)="panelOpenState = true"
-    (closed)="panelOpenState = false"
-  >
-    <mat-expansion-panel-header class="expansion-header">
-      <mat-panel-title><p class="label-nav">Add New Trade</p></mat-panel-title>
-      <!-- <mat-panel-description> Add </mat-panel-description> -->
-    </mat-expansion-panel-header>
-    <app-addpanel></app-addpanel>
-  </mat-expansion-panel>
-  <mat-nav-list (click)="detectFrontRunning()">
-    <a mat-list-item [routerLink]="['/dashboard/detect']">
-      <span matLine><p class="label-nav">Detect</p></span>
-      <mat-icon>search</mat-icon>
-    </a>
-  </mat-nav-list>
-
-  <mat-nav-list class="about">
-    <!-- (click)="showAboutPage()"  -->
-    <a mat-list-item [routerLink]="['/dashboard/about']">
-      <span matLine><p class="label-nav">About</p></span>
-      <mat-icon>help_outline</mat-icon>
-    </a>
-  </mat-nav-list>
-</mat-accordion>
+  <div class="about">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/dashboard/about']">
+        <span matLine><p class="label-nav">About</p></span>
+        <mat-icon>help_outline</mat-icon>
+      </a>
+    </mat-nav-list>
+  </div>
+</div>

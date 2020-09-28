@@ -1,3 +1,4 @@
+import { TableComponent } from './shared/widgets/table/table.component';
 import { DefaultModule } from './layouts/default/default.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 
 
+import { ScenarioComponent } from './modules/scenario/scenario.component';
 
 @NgModule({
   declarations: [

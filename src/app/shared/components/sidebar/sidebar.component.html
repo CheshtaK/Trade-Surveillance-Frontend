@@ -29,7 +29,7 @@
     </mat-expansion-panel-header>
     <app-addpanel></app-addpanel>
   </mat-expansion-panel>
-  <mat-nav-list (click)="detectWashTrades()">
+  <mat-nav-list (click)="detectFrontRunning()" [routerLink]="['/dashboard/detect']">
     <a mat-list-item>
       <span matLine><p>Detect</p></span>
       <mat-icon>search</mat-icon>

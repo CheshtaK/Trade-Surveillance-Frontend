@@ -24,8 +24,11 @@
     "@angular/router": "~10.1.2",
     "@types/highcharts": "^7.0.0",
     "highcharts-angular": "^2.8.0",
+    "jspdf": "^2.1.1",
+    "jspdf-autotable": "^3.5.13",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
+    "xlsx": "^0.16.7",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

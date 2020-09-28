@@ -1,3 +1,4 @@
+import { DetectComponent } from './modules/detect/detect.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { DefaultComponent } from './layouts/default/default.component';
 import { HomeComponent } from './layouts/home/home.component';
@@ -17,7 +18,11 @@ const routes: Routes = [{
     component: DefaultComponent,
     children: [{
       path: '',
-      component: DashboardComponent,
+      component: DashboardComponent
+    },
+    {
+      path: 'detect',
+      component: DetectComponent
     },
     {
       path: 'histogram',

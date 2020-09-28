@@ -14,6 +14,7 @@ import { LineComponent } from './widgets/line/line.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { TableComponent } from './widgets/table/table.component';
 import { MatTableModule } from '@angular/material/table';
+import { HistogramComponent } from './widgets/histogram/histogram.component';
 import { AddpanelComponent } from './components/addpanel/addpanel.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -24,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { MatInputModule } from '@angular/material/input';
     SidebarComponent,
     LineComponent,
     TableComponent,
+    HistogramComponent,
     AddpanelComponent
   ],
   imports: [
@@ -52,14 +55,16 @@ import { MatInputModule } from '@angular/material/input';
     ReactiveFormsModule,
     MatSidenavModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
     LineComponent,
-    TableComponent
+    TableComponent,
+    HistogramComponent,
   ]
 })
 export class SharedModule {}

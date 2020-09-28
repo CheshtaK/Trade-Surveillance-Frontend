@@ -2,15 +2,17 @@
   <!-- <section class="nav-item">Line chart</section>
   <section class="nav-item">Bar chart</section> -->
   <div class="charts">
-    <mat-nav-list (click)="showLineChart()" class="lable-chart">
+    <mat-nav-list  class="lable-chart">
+      <!-- (click)="showLineChart()" -->
       <a mat-list-item>
-        <span matLine><p>Line chart</p> </span>
+        <span matLine [routerLink]="['/dashboard/line']" ><p>Line chart</p> </span>
         <mat-icon>show_chart</mat-icon>
       </a>
     </mat-nav-list>
-    <mat-nav-list (click)="showHistogram()" class="lable-chart">
+    <mat-nav-list  class="lable-chart">
+      <!-- (click)="showHistogram()" -->
       <a mat-list-item>
-        <span matLine><p>Histogram</p></span>
+        <span matLine [routerLink]="['/dashboard/histogram']"><p>Histogram</p></span>
         <mat-icon>bar_chart</mat-icon>
       </a>
     </mat-nav-list>

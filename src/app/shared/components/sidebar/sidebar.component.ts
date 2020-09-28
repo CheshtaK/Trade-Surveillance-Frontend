@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
   panelOpenState = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -17,9 +18,11 @@ export class SidebarComponent implements OnInit {
   }
   showHistogram(): void {
     console.log('show histogram panel');
+    this.router.navigate(['dashboard/histogram']);
   }
   showLineChart(): void {
     console.log('show linechart panel');
+    this.router.navigate(['dashboard/line']);
   }
   showAboutPage(): void {
     console.log('show about Page');

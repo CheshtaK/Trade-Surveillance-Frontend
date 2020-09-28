@@ -4,6 +4,8 @@ import { DefaultComponent } from './layouts/default/default.component';
 import { HomeComponent } from './layouts/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HistogramComponent } from './shared/widgets/histogram/histogram.component';
+import { LineComponent } from './shared/widgets/line/line.component';
 
 const routes: Routes = [{
     path: '',
@@ -19,6 +21,14 @@ const routes: Routes = [{
     {
       path: 'detect',
       component: DetectComponent
+    },
+    {
+      path: 'histogram',
+      component: HistogramComponent,
+    },
+    {
+      path: 'line',
+      component: LineComponent,
     }]
   }
 ];

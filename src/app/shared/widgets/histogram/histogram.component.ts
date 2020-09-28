@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
 
 @Component({
-  selector: 'app-widget-line',
-  templateUrl: './line.component.html',
-  styleUrls: ['./line.component.css']
+  selector: 'app-histogram',
+  templateUrl: './histogram.component.html',
+  styleUrls: ['./histogram.component.css']
 })
-export class LineComponent implements OnInit {
+export class HistogramComponent implements OnInit {
 
   chartOptions: {};
   Highcharts = Highcharts;
@@ -18,6 +18,7 @@ export class LineComponent implements OnInit {
       chart: {
         backgroundColor: null,
         borderWidth: 0,
+        type: 'column'
       },
 
       title: {
@@ -88,4 +89,7 @@ export class LineComponent implements OnInit {
     }, 300);
 
   }
+  
 }
+
+

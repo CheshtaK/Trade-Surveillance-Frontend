@@ -25,14 +25,6 @@ const routes: Routes = [{
       component: DetectComponent
     },
     {
-      path: 'histogram',
-      component: HistogramComponent,
-    },
-    {
-      path: 'line',
-      component: LineComponent,
-    },
-    {
       path: 'about',
       component: AboutComponent
     }]

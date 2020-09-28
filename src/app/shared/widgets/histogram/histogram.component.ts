@@ -3,7 +3,7 @@ import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
 
 @Component({
-  selector: 'app-histogram',
+  selector: 'app-widget-histogram',
   templateUrl: './histogram.component.html',
   styleUrls: ['./histogram.component.css']
 })

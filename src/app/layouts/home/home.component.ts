@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
- 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-  
-
+  ngOnInit(): void {}
 }

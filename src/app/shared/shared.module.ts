@@ -27,6 +27,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -35,7 +36,9 @@ import {MatCardModule} from '@angular/material/card';
     LineComponent,
     TableComponent,
     HistogramComponent,
-    AddpanelComponent
+    AddpanelComponent,
+   
+    
   ],
   imports: [
     CommonModule,
@@ -65,6 +68,8 @@ import {MatCardModule} from '@angular/material/card';
     LineComponent,
     TableComponent,
     HistogramComponent,
+    AddpanelComponent,
+  
   ]
 })
 export class SharedModule {}

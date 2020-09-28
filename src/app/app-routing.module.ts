@@ -5,11 +5,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HistogramComponent } from './shared/widgets/histogram/histogram.component';
 import { LineComponent } from './shared/widgets/line/line.component';
+import { AboutComponent } from './modules/about/about.component';
 
 const routes: Routes = [{
     path: '',
     component: HomeComponent
   },
+  
   {
     path: 'dashboard',
     component: DefaultComponent,
@@ -24,6 +26,10 @@ const routes: Routes = [{
     {
       path: 'line',
       component: LineComponent,
+    },
+    {
+      path: 'about',
+      component: AboutComponent
     }]
   }
 ];

@@ -4,15 +4,15 @@
   <div class="charts">
     <mat-nav-list  class="lable-chart">
       <!-- (click)="showLineChart()" -->
-      <a mat-list-item>
-        <span matLine [routerLink]="['/dashboard/line']" ><p>Line chart</p> </span>
+      <a mat-list-item matLine [routerLink]="['/dashboard/line']">
+        <span  ><p>Line chart</p> </span>
         <mat-icon>show_chart</mat-icon>
       </a>
     </mat-nav-list>
     <mat-nav-list  class="lable-chart">
       <!-- (click)="showHistogram()" -->
-      <a mat-list-item>
-        <span matLine [routerLink]="['/dashboard/histogram']"><p>Histogram</p></span>
+      <a mat-list-item matLine [routerLink]="['/dashboard/histogram']">
+        <span ><p>Histogram</p></span>
         <mat-icon>bar_chart</mat-icon>
       </a>
     </mat-nav-list>
@@ -36,9 +36,10 @@
     </a>
   </mat-nav-list>
 
-  <mat-nav-list (click)="showAboutPage()" class="about">
+  <mat-nav-list class="about">
+    <!-- (click)="showAboutPage()"  -->
     <a mat-list-item>
-      <span matLine><p>About</p></span>
+      <span matLine [routerLink]="['/dashboard/about']"><p>About</p></span>
       <mat-icon>help_outline</mat-icon>
     </a>
   </mat-nav-list>

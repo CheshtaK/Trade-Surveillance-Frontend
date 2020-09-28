@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './layouts/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutComponent } from './modules/about/about.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+
+
 
 @NgModule({
   declarations: [
@@ -18,7 +22,9 @@ import { AboutComponent } from './modules/about/about.component';
     BrowserModule,
     AppRoutingModule,
     DefaultModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

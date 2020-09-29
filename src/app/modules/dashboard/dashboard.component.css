@@ -21,3 +21,7 @@ h3 {
   margin-left: 90%;
   margin-bottom: 5px;
 }
+
+mat-icon{
+  cursor:pointer;
+}

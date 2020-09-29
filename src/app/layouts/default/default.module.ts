@@ -1,3 +1,4 @@
+import { MatIconModule } from '@angular/material/icon';
 import { TableComponent } from './../../shared/widgets/table/table.component';
 import { ScenarioComponent } from './../../modules/scenario/scenario.component';
 import { DetectComponent } from './../../modules/detect/detect.component';
@@ -10,6 +11,7 @@ import { CommonModule } from '@angular/common';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { MatDividerModule } from '@angular/material/divider';
     RouterModule,
     SharedModule,
     MatSidenavModule,
-    MatDividerModule
+    MatDividerModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   exports: [
     ScenarioComponent,

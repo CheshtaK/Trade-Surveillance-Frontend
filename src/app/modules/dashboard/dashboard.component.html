@@ -5,7 +5,7 @@
   <app-widget-histogram></app-widget-histogram>
 </div>
 <mat-divider></mat-divider>
-<div class="refresh">
+<!-- <div class="refresh">
   <h3>
     Trades Table
   </h3>
@@ -19,7 +19,12 @@
   >
     Refresh
   </button>
+</div> -->
+
+<div (click)="refreshTable()" style="display: flex; justify-content: flex-end; padding-right: 10px;">
+  <mat-icon href="javascript:void(0)" matTooltip="Generate new trades" matTooltipPosition="left">refresh</mat-icon>
 </div>
+
 <app-widget-table
   [displayedColumns]="displayedColumns"
   [dataSource]="dataSource"

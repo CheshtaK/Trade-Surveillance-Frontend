@@ -1,7 +1,8 @@
-import { TableComponent } from './shared/widgets/table/table.component';
 import { DefaultModule } from './layouts/default/default.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+
 @NgModule({
   declarations: [AppComponent, HomeComponent, AboutComponent],
   imports: [
@@ -23,7 +25,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    HttpClientModule,
+    LoggerModule.forRoot({serverLoggingUrl: '/users/logs', level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.ERROR})
   ],
   providers: [],
   bootstrap: [AppComponent]

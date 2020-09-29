@@ -26,6 +26,7 @@
     "highcharts-angular": "^2.8.0",
     "jspdf": "^2.1.1",
     "jspdf-autotable": "^3.5.13",
+    "ngx-logger": "^4.1.9",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "xlsx": "^0.16.7",

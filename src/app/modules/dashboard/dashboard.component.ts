@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Trade } from '../../models/Trade';
 
+import { NGXLogger } from 'ngx-logger';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -29,7 +31,8 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private graph: GraphService,
-    private tradeService: TradeService
+    private tradeService: TradeService,
+    private logger: NGXLogger
   ) {}
 
   ngOnInit(): void {
@@ -45,7 +48,8 @@ export class DashboardComponent implements OnInit {
   }
 
   refreshTable(): void {
-    console.log('refresh table data');
+    // console.log('refresh table data');
+    this.logger.debug('refresh table data');
     this.dataSource = this.tradeService.getTrades();
   }
 }

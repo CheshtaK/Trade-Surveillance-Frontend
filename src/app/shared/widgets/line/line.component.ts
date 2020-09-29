@@ -16,7 +16,7 @@ export class LineComponent implements OnInit {
   constructor(private tradeService: TradeService) {}
 
   ngOnInit(): void {
-    this.trades = this.tradeService.getTrades();
+    //this.trades = this.tradeService.getTrades();
     console.log('All trades from Linecharts', this.trades);
 
     this.chartOptions = {

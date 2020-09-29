@@ -1,5 +1,4 @@
 import { TradeService } from '../../services/trade.service';
-
 import { GraphService } from './../../graph.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -13,19 +12,30 @@ import { NGXLogger } from 'ngx-logger';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  dataSource: Trade[];
+  
+  dataSource: Trade[] = [];
   displayedColumns: string[] = [
     'trade_id',
-    'trade_dt',
-    'trade_type',
-    'trader',
-    'security',
-    'security_type',
+    'timestamp',
+    'type',
+    'traderName',
+    'securityName',
+    'securityType',
     'quantity',
     'price',
-    'broker'
+    'brokerName'
   ];
-  // dataSource = ELEMENT_DATA;
+
+  index: string[] = [
+    'timestamp',
+    'type',
+    'traderName',
+    'securityName',
+    'securityType',
+    'quantity',
+    'price',
+    'brokerName'
+  ];
 
   line: boolean;
   histogram: boolean;
@@ -41,7 +51,13 @@ export class DashboardComponent implements OnInit {
     // this.tradeService.getTrades().subscribe((trades) => {
     // this.dataSource = trades;
 
-    this.dataSource = this.tradeService.getTrades();
+    this.tradeService.getTrades().subscribe(
+      (response) => {
+        this.dataSource = response;
+      },
+      (error) => console.log(error)
+    )
+
     this.graph.currentLine.subscribe(line => (this.line = line));
     this.graph.currentHistogram.subscribe(
       histogram => (this.histogram = histogram)
@@ -51,6 +67,6 @@ export class DashboardComponent implements OnInit {
   refreshTable(): void {
     // console.log('refresh table data');
     this.logger.debug('refresh table data');
-    this.dataSource = this.tradeService.getTrades();
+    // this.dataSource = this.tradeService.getTrades();
   }
 }

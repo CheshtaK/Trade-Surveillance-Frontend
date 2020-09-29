@@ -16,7 +16,7 @@ export class HistogramComponent implements OnInit {
   trades: Trade[];
 
   ngOnInit(): void {
-    this.trades = this.tradeService.getTrades();
+    //this.trades = this.tradeService.getTrades();
     console.log('All trades from histogram', this.trades);
     this.chartOptions = {
       chart: {

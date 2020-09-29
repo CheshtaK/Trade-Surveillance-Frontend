@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Trade } from '../models/Trade';
 
@@ -5,19 +6,21 @@ import { Trade } from '../models/Trade';
   providedIn: 'root'
 })
 export class TradeService {
-  constructor() {}
+  
+  constructor(private http: HttpClient) {}
   trades: Trade[];
   detectedTrades: Trade[];
 
-  // tradesUrl = '';
+  tradesUrl = 'http://localhost:8080/getTradeList';
   // detectedTradesUrl = '';
 
-  getTrades(): Trade[] {
+  getTrades() {
     // replace this with fetch request from services
     // return this.http.get<Trade[]>(tradesUrl);
 
-    this.trades = ELEMENT_DATA;
-    return this.trades;
+    // this.trades = ELEMENT_DATA;
+    console.log('in get trades service')
+    return this.http.get<Trade[]>(this.tradesUrl);
   }
 
   addTrade(trade: Trade): void {
@@ -28,238 +31,11 @@ export class TradeService {
     this.trades.push(trade);
   }
 
-  getDetectedTrades(): Trade[] {
-    // replace this with fetch request from services
-    // return this.http.get<Trade[]>(detectedTradesUrl);
+  // getDetectedTrades(): Trade[] {
+  //   // replace this with fetch request from services
+  //   // return this.http.get<Trade[]>(detectedTradesUrl);
 
-    this.detectedTrades = DetectedElements;
-    return this.detectedTrades;
-  }
+  //   // this.detectedTrades = DetectedElements;
+  //   // return this.detectedTrades;
+  // }
 }
-
-// remove this once we start fetching data from server
-const ELEMENT_DATA: Trade[] = [
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  }
-];
-
-const DetectedElements: Trade[] = [
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  },
-  {
-    trade_id: 1,
-    trade_dt: '10-23-04',
-    trade_type: 'sell',
-    trader: 'Citi',
-    security: 'Facebook',
-    security_type: 'Equity Shares',
-    quantity: 1000,
-    price: 8222,
-    broker: 'Citi Velocity'
-  }
-];

@@ -76,6 +76,7 @@ mat-nav-list,
   height: 75px;
   margin-left: 37%;
   margin-top: 4%;
+  animation: all linear 0.5s;
 }
 .logo:hover {
   cursor: pointer;

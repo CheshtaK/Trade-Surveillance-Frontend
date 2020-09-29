@@ -21,8 +21,8 @@ export class ScenarioComponent implements OnInit {
     // this.tradeService.detectedTrades().subscribe((trades) => {
     // this.dataSource = trades;
 
-    this.detectedTrades = this.tradeService.getDetectedTrades();
-    console.log('detected trades', this.detectedTrades);
+    // this.detectedTrades = this.tradeService.getDetectedTrades();
+    // console.log('detected trades', this.detectedTrades);
 
     this.displayedColumns = [
       'trade_id',
@@ -53,14 +53,14 @@ export class ScenarioComponent implements OnInit {
     this.detectedTrades.forEach(e => {
       var tempObj = [];
 
-      tempObj.push(e.trade_id);
-      tempObj.push(e.trade_dt);
-      tempObj.push(e.trade_type);
-      tempObj.push(e.trader);
-      tempObj.push(e.security);
-      tempObj.push(e.security_type);
-      tempObj.push(e.quantity);
-      tempObj.push(e.price);
+      // tempObj.push(e.trade_id);
+      // tempObj.push(e.trade_dt);
+      // tempObj.push(e.trade_type);
+      // tempObj.push(e.trader);
+      // tempObj.push(e.security);
+      // tempObj.push(e.security_type);
+      // tempObj.push(e.quantity);
+      // tempObj.push(e.price);
 
       prepare.push(tempObj);
     });

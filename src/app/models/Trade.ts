@@ -1,13 +1,11 @@
 // Gobal data model for Trade
 
 export class Trade {
-  trade_id: number;
-  trade_dt: string;
-  trade_type: string;
-  trader: string;
-  security: string;
-  security_type: string;
+  timestamp: string;
+  type: string;
+  traderName: string;
+  securityName: string;
   quantity: number;
   price: number;
-  broker: string;
+  brokerName: string;
 }

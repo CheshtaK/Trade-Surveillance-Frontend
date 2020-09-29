@@ -22,7 +22,8 @@ export class DashboardComponent implements OnInit {
     'security',
     'security_type',
     'quantity',
-    'price'
+    'price',
+    'broker'
   ];
   // dataSource = ELEMENT_DATA;
 

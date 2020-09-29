@@ -32,7 +32,8 @@ export class ScenarioComponent implements OnInit {
       'security',
       'security_type',
       'quantity',
-      'price'
+      'price',
+      'broker'
     ];
   }
 

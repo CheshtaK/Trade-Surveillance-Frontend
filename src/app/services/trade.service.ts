@@ -47,7 +47,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -57,7 +58,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -67,7 +69,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -77,7 +80,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -87,7 +91,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -97,7 +102,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -107,7 +113,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -117,7 +124,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -127,7 +135,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -137,7 +146,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -147,7 +157,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -157,7 +168,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -167,7 +179,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -177,7 +190,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -187,7 +201,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -197,7 +212,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -207,7 +223,8 @@ const ELEMENT_DATA: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   }
 ];
 
@@ -220,7 +237,8 @@ const DetectedElements: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -230,7 +248,8 @@ const DetectedElements: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   },
   {
     trade_id: 1,
@@ -240,6 +259,7 @@ const DetectedElements: Trade[] = [
     security: 'Facebook',
     security_type: 'Equity Shares',
     quantity: 1000,
-    price: 8222
+    price: 8222,
+    broker: 'Citi Velocity'
   }
 ];

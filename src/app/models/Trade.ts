@@ -9,4 +9,5 @@ export class Trade {
   security_type: string;
   quantity: number;
   price: number;
+  broker: string;
 }

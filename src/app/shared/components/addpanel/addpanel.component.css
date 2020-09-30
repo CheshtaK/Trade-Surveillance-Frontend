@@ -12,11 +12,13 @@
   height: 20px;
 }
 .time-type-row,
-.securities-row {
+.securities-row,
+.numbers-row {
   display: flex;
 }
 .time-type-row .mat-form-field,
-.securities-row .mat-form-field {
+.securities-row .mat-form-field,
+.numbers-row .mat-form-field {
   width: 45%;
   min-width: 45% !important;
   margin-right: 10px;

@@ -12,7 +12,6 @@ import { NGXLogger } from 'ngx-logger';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  
   dataSource: Trade[] = [];
   displayedColumns: string[] = [
     'trade_id',
@@ -51,22 +50,26 @@ export class DashboardComponent implements OnInit {
     // this.tradeService.getTrades().subscribe((trades) => {
     // this.dataSource = trades;
 
+    this.getAllData();
+  }
+
+  refreshTable(): void {
+    // console.log('refresh table data');
+    this.getAllData();
+    // this.dataSource = this.tradeService.getTrades();
+  }
+
+  getAllData(): void {
     this.tradeService.getTrades().subscribe(
-      (response) => {
+      response => {
         this.dataSource = response;
       },
-      (error) => console.log(error)
-    )
+      error => console.log(error)
+    );
 
     this.graph.currentLine.subscribe(line => (this.line = line));
     this.graph.currentHistogram.subscribe(
       histogram => (this.histogram = histogram)
     );
-  }
-
-  refreshTable(): void {
-    // console.log('refresh table data');
-    this.logger.debug('refresh table data');
-    // this.dataSource = this.tradeService.getTrades();
   }
 }

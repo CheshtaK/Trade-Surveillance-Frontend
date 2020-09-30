@@ -5,6 +5,8 @@ import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { Trade } from '../../models/Trade';
 
+import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-scenario',
   templateUrl: './scenario.component.html',
@@ -12,11 +14,11 @@ import { Trade } from '../../models/Trade';
 })
 export class ScenarioComponent implements OnInit {
   displayedColumns: string[];
-  detectedTrades: Trade[];
 
   @Input() scenario: Trade[];
 
-  constructor(private tradeService: TradeService) {}
+  constructor(private tradeService: TradeService,
+    private datePipe:  DatePipe) {}
 
   ngOnInit(): void {
     // code to be replaced once api is done
@@ -51,20 +53,24 @@ export class ScenarioComponent implements OnInit {
 
   exportAsPDF() {
     var prepare = [];
-    this.detectedTrades.forEach(e => {
-      var tempObj = [];
 
-      // tempObj.push(e.trade_id);
-      // tempObj.push(e.trade_dt);
-      // tempObj.push(e.trade_type);
-      // tempObj.push(e.trader);
-      // tempObj.push(e.security);
-      // tempObj.push(e.security_type);
-      // tempObj.push(e.quantity);
-      // tempObj.push(e.price);
+    for(let i=0; i<this.scenario.length; i++){
+      var tempObj = [];
+      
+      let time = this.datePipe.transform(this.scenario[i].timestamp, 'mediumTime');
+
+      tempObj.push(i+1);
+      tempObj.push(time);
+      tempObj.push(this.scenario[i].type);
+      tempObj.push(this.scenario[i].traderName);
+      tempObj.push(this.scenario[i].securityName);
+      tempObj.push(this.scenario[i].securityType);
+      tempObj.push(this.scenario[i].quantity);
+      tempObj.push(this.scenario[i].price);
+      tempObj.push(this.scenario[i].brokerName);
 
       prepare.push(tempObj);
-    });
+    }
 
     const doc = new jsPDF();
 
@@ -78,7 +84,8 @@ export class ScenarioComponent implements OnInit {
           'Security',
           'Security Type',
           'Quantity',
-          'Price'
+          'Price',
+          'Broker'
         ]
       ],
       body: prepare

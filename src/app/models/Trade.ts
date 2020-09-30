@@ -5,6 +5,7 @@ export class Trade {
   type: string;
   traderName: string;
   securityName: string;
+  securityType: string;
   quantity: number;
   price: number;
   brokerName: string;

@@ -78,5 +78,6 @@ export class DashboardComponent implements OnInit {
     // console.log('refresh table data');
     this.logger.debug('refresh table data');
     // this.dataSource = this.tradeService.getTrades();
+    
   }
 }

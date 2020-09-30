@@ -14,6 +14,7 @@ export class HistogramComponent implements OnInit {
   Highcharts = Highcharts;
   constructor(private tradeService: TradeService) {}
   trades: Trade[];
+  
 
   ngOnInit(): void {
     //this.trades = this.tradeService.getTrades();

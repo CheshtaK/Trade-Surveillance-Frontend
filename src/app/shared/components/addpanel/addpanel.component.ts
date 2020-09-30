@@ -33,7 +33,6 @@ export class AddpanelComponent implements OnInit {
   // Function to get value of new trade data entered by user
   // works on form submit
   getNewTrade(): void {
-    console.log('called', this.newTrade.value);
     const trade = this.newTrade.value;
     this.addTrade.emit(trade);
     this.resetForm(this.newTrade);

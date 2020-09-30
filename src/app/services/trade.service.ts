@@ -12,14 +12,13 @@ export class TradeService {
   detectedTrades: Trade[];
 
   tradesUrl = 'http://localhost:8080/getTradeList';
-  // detectedTradesUrl = '';
+  detectedTradesUrl = 'http://localhost:8080/getFrontRunningTrades';
 
   getTrades() {
     // replace this with fetch request from services
     // return this.http.get<Trade[]>(tradesUrl);
 
     // this.trades = ELEMENT_DATA;
-    console.log('in get trades service')
     return this.http.get<Trade[]>(this.tradesUrl);
   }
 
@@ -27,15 +26,15 @@ export class TradeService {
     // replace the post call when api is done
     // return this.http.post<Trade>(this.tradesUrl, todo, httpOptions);
 
-    console.log('from services', trade);
     this.trades.push(trade);
   }
 
-  // getDetectedTrades(): Trade[] {
-  //   // replace this with fetch request from services
-  //   // return this.http.get<Trade[]>(detectedTradesUrl);
+  getDetectedTrades(){
+    // replace this with fetch request from services
+    // return this.http.get<Trade[]>(detectedTradesUrl);
 
-  //   // this.detectedTrades = DetectedElements;
-  //   // return this.detectedTrades;
-  // }
+    // this.detectedTrades = DetectedElements;
+    // return this.detectedTrades;
+    return this.http.get(this.detectedTradesUrl);
+  }
 }

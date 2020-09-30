@@ -65,8 +65,11 @@ export class DashboardComponent implements OnInit {
   }
 
   refreshTable(): void {
-    // console.log('refresh table data');
-    this.logger.debug('refresh table data');
-    // this.dataSource = this.tradeService.getTrades();
+    this.tradeService.getTrades().subscribe(
+      (response) => {
+        this.dataSource = response;
+      },
+      (error) => console.log(error)
+    )
   }
 }

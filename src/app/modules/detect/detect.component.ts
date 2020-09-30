@@ -1,6 +1,8 @@
 import { Trade } from './../../models/Trade';
 import { TradeService } from './../../services/trade.service';
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+// import { LoaderComponent } from '../../shared/widgets/loader/loader.component'
 
 @Component({
   selector: 'app-detect',
@@ -23,13 +25,18 @@ export class DetectComponent implements OnInit {
     'price',
     'brokerName'
   ];
-  constructor(private tradeService: TradeService) {
+  constructor(private tradeService: TradeService,
+    private spinner: NgxSpinnerService) {
   }
 
   ngOnInit(): void {
+    //loading starts
+    this.spinner.show();
     this.tradeService.getDetectedTrades().subscribe(
       (response) => {
         this.dataSource = response;
+        // loading stops
+        this.spinner.hide();
         console.log(this.dataSource.length);
         // console.log(this.dataSource[0]['involvedTrades'][0]);        
 
@@ -40,7 +47,10 @@ export class DetectComponent implements OnInit {
 
         console.log(this.scenarios);
       },
-      (error) => console.log(error)
+      error => {
+        console.log(error);
+        this.spinner.hide();    //if error occured loading stops
+      }
     )
   }
 }

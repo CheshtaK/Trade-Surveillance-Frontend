@@ -18,8 +18,8 @@ export class AddpanelComponent implements OnInit {
       type: '',
       securityType: '',
       securityName: '',
-      quantity: [null, [Validators.required, Validators.min(0)]],
-      price: [null, [Validators.required, Validators.min(0)]],
+      quantity: [null, [Validators.required, Validators.min(1)]],
+      price: [null, [Validators.required, Validators.min(1)]],
       brokerName: '',
       traderName: ''
     });
@@ -29,6 +29,9 @@ export class AddpanelComponent implements OnInit {
   // function to show error if quantity is negative
   get quantity(): any {
     return this.newTrade.get('quantity');
+  }
+  get price(): any {
+    return this.newTrade.get('price');
   }
 
   // Function to get value of new trade data entered by user

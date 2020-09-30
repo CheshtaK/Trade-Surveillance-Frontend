@@ -51,11 +51,11 @@
         formControlName="quantity"
       />
       <mat-error *ngIf="quantity.invalid">
-        Price can not be less than 0
+        Quantity should be greater than 0
       </mat-error>
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Total Price</mat-label>
+      <mat-label>Price</mat-label>
       <input
         matInput
         type="number"
@@ -63,31 +63,30 @@
         required
         formControlName="price"
       />
+      <mat-error *ngIf="price.invalid">
+        Price should be greater than 0
+      </mat-error>
     </mat-form-field>
   </div>
 
   <mat-form-field>
     <mat-select required formControlName="brokerName">
       <mat-option>-- None --</mat-option>
-      <mat-option value="Sharekhan">Sharekhan</mat-option>
+      <mat-option value="Charles Schwab">Charles Schwab</mat-option>
       <mat-option value="Citi Velocity">Citi Velocity</mat-option>
-      <mat-option value="Zerodha">Zerodha</mat-option>
-      <mat-option value="ICICI Direct">ICICI Direct</mat-option>
-      <mat-option value="Kotak Securities">Kotak Securities</mat-option>
+      <mat-option value="E*Trade">E*Trade</mat-option>
+      <mat-option value="Fidelity Investments">Fidelity Investments</mat-option>
+      <mat-option value="TD Ameritrade">TD Ameritrade</mat-option>
     </mat-select>
     <mat-label>Broker Name</mat-label>
   </mat-form-field>
   <mat-form-field>
     <mat-select required formControlName="traderName">
       <mat-option>-- None --</mat-option>
-      <mat-option value="Raytheon Technologies"
-        >Raytheon Technologies</mat-option
-      >
-      <mat-option value="Citi Group">Citi Group</mat-option>
-      <mat-option value="Alibaba Group">Alibaba Group</mat-option>
-      <mat-option value="LVMH Moët Hennessy Louis Vuitton"
-        >LVMH Moët Hennessy Louis Vuitton</mat-option
-      >
+      <mat-option value="Bridgewater Associates">Bridgewater Associates</mat-option>
+      <mat-option value="Citi Global Markets">Citi Global Markets</mat-option>
+      <mat-option value="Goldman Sachs">Goldman Sachs</mat-option>
+      <mat-option value="The Vanguard Group">The Vanguard Group</mat-option>
     </mat-select>
     <mat-label>Trader Name</mat-label>
   </mat-form-field>

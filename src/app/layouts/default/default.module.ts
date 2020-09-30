@@ -13,12 +13,13 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
+
 @NgModule({
   declarations: [
     DefaultComponent,
     DashboardComponent,
     DetectComponent,
-    ScenarioComponent
+    ScenarioComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +32,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
   ],
   exports: [
     ScenarioComponent,
-    TableComponent
+    TableComponent,
+    
   ],
   providers: [
     DatePipe

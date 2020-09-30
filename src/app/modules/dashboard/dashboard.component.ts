@@ -58,6 +58,7 @@ export class DashboardComponent implements OnInit {
 
   // function to get all data from backend and pass it to ui
   getAllData(): void {
+    // laoding starts
     this.spinner.show();
     this.tradeService.getTrades().subscribe(
       response => {
@@ -67,7 +68,7 @@ export class DashboardComponent implements OnInit {
       },
       error => {
         console.log(error);
-        this.spinner.hide();
+        this.spinner.hide();     //if error occured loading stops
       }
     );
 

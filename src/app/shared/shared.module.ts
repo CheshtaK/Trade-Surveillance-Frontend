@@ -28,7 +28,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { LoaderComponent } from './widgets/loader/loader.component';
-import { NgxSpinnerModule } from "ngx-spinner"
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -71,8 +71,7 @@ import { NgxSpinnerModule } from "ngx-spinner"
     LineComponent,
     TableComponent,
     HistogramComponent,
-    AddpanelComponent,
-    
+    AddpanelComponent, 
   ]
 })
 export class SharedModule {}

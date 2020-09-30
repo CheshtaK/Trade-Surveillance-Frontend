@@ -5,16 +5,15 @@ import { Component, OnInit } from '@angular/core';
 import { Trade } from '../../models/Trade';
 
 import { NGXLogger } from 'ngx-logger';
-import {LoaderComponent} from "../../shared/widgets/loader/loader.component"
+import { LoaderComponent } from '../../shared/widgets/loader/loader.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  
   dataSource: Trade[] = [];
   displayedColumns: string[] = [
     'trade_id',
@@ -50,36 +49,31 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // code to be replaced once api is done
-    // this.tradeService.getTrades().subscribe((trades) => {
-    // this.dataSource = trades;
-    //loading starts
+    this.getAllData();
+  }
+
+  refreshTable(): void {
+    this.getAllData();
+  }
+
+  // function to get all data from backend and pass it to ui
+  getAllData(): void {
     this.spinner.show();
     this.tradeService.getTrades().subscribe(
-      (response) => {
-        //loading stops
+      response => {
+        // loading stops
         this.spinner.hide();
         this.dataSource = response;
-
       },
-      (error) =>{
+      error => {
         console.log(error);
         this.spinner.hide();
-      } 
-    )
+      }
+    );
 
     this.graph.currentLine.subscribe(line => (this.line = line));
     this.graph.currentHistogram.subscribe(
       histogram => (this.histogram = histogram)
     );
-  }
-
-  refreshTable(): void {
-    this.tradeService.getTrades().subscribe(
-      (response) => {
-        this.dataSource = response;
-      },
-      (error) => console.log(error)
-    )
   }
 }

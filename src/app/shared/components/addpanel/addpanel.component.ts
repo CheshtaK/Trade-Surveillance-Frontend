@@ -14,13 +14,14 @@ export class AddpanelComponent implements OnInit {
 
   ngOnInit(): void {
     this.newTrade = this.fb.group({
-      time: '',
+      timestamp: '',
       type: '',
       securityType: '',
-      security: '',
+      securityName: '',
       quantity: [null, [Validators.required, Validators.min(0)]],
-      totalPrice: [null, [Validators.required, Validators.min(0)]],
-      brokerName: ''
+      price: [null, [Validators.required, Validators.min(0)]],
+      brokerName: '',
+      traderName: ''
     });
     // this.newTrade.valueChanges.subscribe(console.log);
   }
@@ -33,7 +34,9 @@ export class AddpanelComponent implements OnInit {
   // Function to get value of new trade data entered by user
   // works on form submit
   getNewTrade(): void {
-    const trade = this.newTrade.value;
+    let trade = this.newTrade.value;
+    trade.timestamp = `2020-10-05T${trade.timestamp}.000+00:00`;
+    console.log('called', trade);
     this.addTrade.emit(trade);
     this.resetForm(this.newTrade);
   }

@@ -40,14 +40,21 @@ export class DashboardComponent implements OnInit {
 
   line: boolean;
   histogram: boolean;
-
+  isNewTrade = false;
   constructor(
     private graph: GraphService,
     private tradeService: TradeService,
     private logger: NGXLogger,
     private spinner: NgxSpinnerService
   ) {}
+  ngDoCheck() {
+    // console.log('Do check is working');
 
+    if (this.isNewTrade !== this.graph.getNewTrade()) {
+      this.fetchData();
+      this.graph.setNewTrade(false);
+    }
+  }
   ngOnInit(): void {
     this.getAllData();
   }
@@ -62,6 +69,27 @@ export class DashboardComponent implements OnInit {
     this.tradeService.getTrades().subscribe(
       response => {
         // loading stops
+        this.spinner.hide();
+        this.dataSource = response;
+      },
+      error => {
+        console.log(error);
+        this.spinner.hide();
+      }
+    );
+
+    this.graph.currentLine.subscribe(line => (this.line = line));
+    this.graph.currentHistogram.subscribe(
+      histogram => (this.histogram = histogram)
+    );
+  }
+  fetchData() {
+    this.spinner.show();
+    this.tradeService.fetchTrades().subscribe(
+      response => {
+        // loading stops
+        console.log('this is fetch data in dashboard', response);
+
         this.spinner.hide();
         this.dataSource = response;
       },

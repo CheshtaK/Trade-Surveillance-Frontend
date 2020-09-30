@@ -55,11 +55,10 @@ export class SidebarComponent implements OnInit {
   addTrade(trade: Trade): any {
     this.tradeService.addTrade(trade).subscribe(
       response => {
-        console.log(response);
-
         this.tradeService.fetchTrades().subscribe(
           res => {
             console.log('fetch response', res);
+            this.graph.setNewTrade(true);
           },
           err => console.log(err)
         );

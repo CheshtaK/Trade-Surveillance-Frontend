@@ -19,7 +19,7 @@ export class TradeService {
 
   URL = 'http://localhost:8080';
   tradesUrl = 'http://localhost:8080/getTradeList';
-  // detectedTradesUrl = '';
+  detectedTradesUrl = 'http://localhost:8080/getFrontRunningTrades';
 
   getTrades(): any {
     // replace this with fetch request from services
@@ -45,28 +45,13 @@ export class TradeService {
 
     return this.http.get<Trade>(`${this.URL}/fetchTradeList`);
   }
-  // getDetectedTrades(): Trade[] {
-  //   // replace this with fetch request from services
-  //   // return this.http.get<Trade[]>(detectedTradesUrl);
 
-  //   // this.detectedTrades = DetectedElements;
-  //   // return this.detectedTrades;
-  // }
+  getDetectedTrades() {
+    // replace this with fetch request from services
+    // return this.http.get<Trade[]>(detectedTradesUrl);
+
+    // this.detectedTrades = DetectedElements;
+    // return this.detectedTrades;
+    return this.http.get(this.detectedTradesUrl);
+  }
 }
-
-// "type": "buy",
-// "timestamp": "2020-10-05T03:30:06.000+00:00",
-// "securityName": "Walmart",
-// "securityType": "Put",
-// "brokerName": "Sharekhan",
-// "traderName": "Raytheon Technologies",
-// "quantity": 67,
-// "price": 4074.6
-
-// brokerName: "One"
-// quantity: 2
-// security: "Facebook"
-// securityType: "Equity shares"
-// time: "12:10:00"
-// totalPrice: 44
-// type: "Buy"

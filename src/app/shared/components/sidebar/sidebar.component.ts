@@ -10,9 +10,8 @@ import { Trade } from '../../../models/Trade';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  panelOpenState = false;
-
   line: boolean;
+  dataSource: any = [];
 
   constructor(
     private graph: GraphService,
@@ -24,7 +23,14 @@ export class SidebarComponent implements OnInit {
   }
 
   detectFrontRunning(): void {
-    console.log('Call detect front running');
+    // this.tradeService.getDetectedTrades().subscribe(
+    //   (response) => {
+    //     console.log('front running trades');
+    //     this.dataSource = response;
+    //     console.log(this.dataSource);
+    //   },
+    //   (error) => console.log(error)
+    // )
   }
 
   // toggleGraph(){
@@ -33,12 +39,10 @@ export class SidebarComponent implements OnInit {
   // }
 
   showHistogram(): void {
-    console.log('show histogram panel');
     this.graph.changeGraph(false, true);
   }
 
   showLineChart(): void {
-    console.log('show linechart panel');
     this.graph.changeGraph(true, false);
   }
 
@@ -46,7 +50,9 @@ export class SidebarComponent implements OnInit {
     console.log('show about Page');
   }
 
-  addTrade(trade: Trade) {
+  // this function adds data to db and also fetches the complete list from backend
+
+  addTrade(trade: Trade): any {
     this.tradeService.addTrade(trade).subscribe(
       response => {
         console.log(response);

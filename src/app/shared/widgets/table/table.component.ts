@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 
-
 @Component({
   selector: 'app-widget-table',
   templateUrl: './table.component.html',

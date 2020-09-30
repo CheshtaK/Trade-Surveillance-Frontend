@@ -15,7 +15,6 @@ export class GraphService {
   constructor() { }
 
   changeGraph(line: boolean, histogram: boolean){
-    console.log('change graph');
     this.line.next(line);
     this.histogram.next(histogram);
   }

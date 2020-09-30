@@ -1,5 +1,5 @@
 import { TradeService } from '../../services/trade.service';
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -14,6 +14,8 @@ export class ScenarioComponent implements OnInit {
   displayedColumns: string[];
   detectedTrades: Trade[];
 
+  @Input() scenario: Trade[];
+
   constructor(private tradeService: TradeService) {}
 
   ngOnInit(): void {
@@ -22,18 +24,17 @@ export class ScenarioComponent implements OnInit {
     // this.dataSource = trades;
 
     // this.detectedTrades = this.tradeService.getDetectedTrades();
-    // console.log('detected trades', this.detectedTrades);
 
     this.displayedColumns = [
       'trade_id',
-      'trade_dt',
-      'trade_type',
-      'trader',
-      'security',
-      'security_type',
+      'timestamp',
+      'type',
+      'traderName',
+      'securityName',
+      'securityType',
       'quantity',
       'price',
-      'broker'
+      'brokerName'
     ];
   }
 

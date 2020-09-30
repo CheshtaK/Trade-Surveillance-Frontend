@@ -27,6 +27,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { LoaderComponent } from './widgets/loader/loader.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     LineComponent,
     TableComponent,
     HistogramComponent,
-    AddpanelComponent
+    AddpanelComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -58,7 +61,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSelectModule,
     MatInputModule,
     MatCardModule,
-    MatTooltipModule
+    MatTooltipModule,
+    NgxSpinnerModule
   ],
   exports: [
     HeaderComponent,
@@ -67,7 +71,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     LineComponent,
     TableComponent,
     HistogramComponent,
-    AddpanelComponent
+    AddpanelComponent, 
   ]
 })
 export class SharedModule {}

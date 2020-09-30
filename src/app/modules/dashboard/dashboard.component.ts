@@ -5,11 +5,13 @@ import { Component, OnInit } from '@angular/core';
 import { Trade } from '../../models/Trade';
 
 import { NGXLogger } from 'ngx-logger';
+import {LoaderComponent} from "../../shared/widgets/loader/loader.component"
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
   
@@ -43,19 +45,27 @@ export class DashboardComponent implements OnInit {
   constructor(
     private graph: GraphService,
     private tradeService: TradeService,
-    private logger: NGXLogger
+    private logger: NGXLogger,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
     // code to be replaced once api is done
     // this.tradeService.getTrades().subscribe((trades) => {
     // this.dataSource = trades;
-
+    //loading starts
+    this.spinner.show();
     this.tradeService.getTrades().subscribe(
       (response) => {
+        //loading stops
+        this.spinner.hide();
         this.dataSource = response;
+
       },
-      (error) => console.log(error)
+      (error) =>{
+        console.log(error);
+        this.spinner.hide();
+      } 
     )
 
     this.graph.currentLine.subscribe(line => (this.line = line));

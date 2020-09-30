@@ -5,17 +5,26 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class GraphService {
-
   private line = new BehaviorSubject<boolean>(true);
   private histogram = new BehaviorSubject<boolean>(false);
+
+  // global variable which detects if the new trade is added or not
+  private newTrade = false;
 
   currentLine = this.line.asObservable();
   currentHistogram = this.histogram.asObservable();
 
-  constructor() { }
+  constructor() {}
 
-  changeGraph(line: boolean, histogram: boolean){
+  changeGraph(line: boolean, histogram: boolean): any {
     this.line.next(line);
     this.histogram.next(histogram);
+  }
+
+  setNewTrade(val): any {
+    this.newTrade = val;
+  }
+  getNewTrade(): any {
+    return this.newTrade;
   }
 }

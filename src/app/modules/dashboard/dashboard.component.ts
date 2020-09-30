@@ -40,7 +40,7 @@ export class DashboardComponent implements OnInit {
 
   line: boolean;
   histogram: boolean;
-
+  isNewTrade = false;
   constructor(
     private graph: GraphService,
     private tradeService: TradeService,
@@ -48,10 +48,17 @@ export class DashboardComponent implements OnInit {
     private spinner: NgxSpinnerService
   ) {}
 
+  ngDoCheck() {
+    // check if new trade is added or not
+    if (this.isNewTrade !== this.graph.getNewTrade()) {
+      this.fetchData();
+    }
+  }
   ngOnInit(): void {
     this.getAllData();
   }
 
+  // refresh table data on button click
   refreshTable(): void {
     this.getAllData();
   }
@@ -69,6 +76,27 @@ export class DashboardComponent implements OnInit {
       error => {
         console.log(error);
         this.spinner.hide();     //if error occured loading stops
+      }
+    );
+
+    this.graph.currentLine.subscribe(line => (this.line = line));
+    this.graph.currentHistogram.subscribe(
+      histogram => (this.histogram = histogram)
+    );
+  }
+
+  // function to fetch data from db when new trade is added
+  fetchData(): any {
+    this.spinner.show();
+    this.tradeService.fetchTrades().subscribe(
+      response => {
+        this.spinner.hide();
+        this.dataSource = response;
+        this.graph.setNewTrade(false);
+      },
+      error => {
+        console.log(error);
+        this.spinner.hide();
       }
     );
 

@@ -50,18 +50,11 @@ export class SidebarComponent implements OnInit {
     console.log('show about Page');
   }
 
-  // this function adds data to db and also fetches the complete list from backend
-
+  // this function adds data to db and changes the global isNewTrade variable to true
   addTrade(trade: Trade): any {
     this.tradeService.addTrade(trade).subscribe(
       response => {
-        this.tradeService.fetchTrades().subscribe(
-          res => {
-            console.log('fetch response', res);
-            this.graph.setNewTrade(true);
-          },
-          err => console.log(err)
-        );
+        this.graph.setNewTrade(true);
       },
       err => console.log(err)
     );

@@ -47,18 +47,18 @@ export class DashboardComponent implements OnInit {
     private logger: NGXLogger,
     private spinner: NgxSpinnerService
   ) {}
-  ngDoCheck() {
-    // console.log('Do check is working');
 
+  ngDoCheck() {
+    // check if new trade is added or not
     if (this.isNewTrade !== this.graph.getNewTrade()) {
       this.fetchData();
-      this.graph.setNewTrade(false);
     }
   }
   ngOnInit(): void {
     this.getAllData();
   }
 
+  // refresh table data on button click
   refreshTable(): void {
     this.getAllData();
   }
@@ -83,15 +83,15 @@ export class DashboardComponent implements OnInit {
       histogram => (this.histogram = histogram)
     );
   }
-  fetchData() {
+
+  // function to fetch data from db when new trade is added
+  fetchData(): any {
     this.spinner.show();
     this.tradeService.fetchTrades().subscribe(
       response => {
-        // loading stops
-        console.log('this is fetch data in dashboard', response);
-
         this.spinner.hide();
         this.dataSource = response;
+        this.graph.setNewTrade(false);
       },
       error => {
         console.log(error);

@@ -5,7 +5,6 @@ import { Component, OnInit } from '@angular/core';
 import { Trade } from '../../models/Trade';
 
 import { NGXLogger } from 'ngx-logger';
-import { LoaderComponent } from '../../shared/widgets/loader/loader.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({

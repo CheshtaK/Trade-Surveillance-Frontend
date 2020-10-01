@@ -66,6 +66,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     TableComponent,
     HistogramComponent,
     AddpanelComponent, 
+    LoaderComponent 
   ]
 })
 export class SharedModule {}

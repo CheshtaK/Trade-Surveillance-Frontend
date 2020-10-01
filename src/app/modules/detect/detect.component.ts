@@ -2,7 +2,6 @@ import { Trade } from './../../models/Trade';
 import { TradeService } from './../../services/trade.service';
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-// import { LoaderComponent } from '../../shared/widgets/loader/loader.component'
 
 @Component({
   selector: 'app-detect',

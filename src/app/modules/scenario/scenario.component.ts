@@ -7,6 +7,7 @@ import { Trade } from '../../models/Trade';
 
 import { DatePipe } from '@angular/common';
 
+
 @Component({
   selector: 'app-scenario',
   templateUrl: './scenario.component.html',

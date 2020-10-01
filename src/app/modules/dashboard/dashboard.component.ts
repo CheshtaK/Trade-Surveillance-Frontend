@@ -40,12 +40,16 @@ export class DashboardComponent implements OnInit {
   line: boolean;
   histogram: boolean;
   isNewTrade = false;
+  isNewTradeList = true;
+
   constructor(
     private graph: GraphService,
     private tradeService: TradeService,
     private logger: NGXLogger,
     private spinner: NgxSpinnerService
-  ) {}
+  ) {
+    console.log('called');
+  }
 
   ngDoCheck() {
     // check if new trade is added or not
@@ -54,7 +58,12 @@ export class DashboardComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    this.getAllData();
+    if(this.isNewTradeList === this.graph.getNewTradeList()){
+      this.getAllData();
+    }
+    else{
+      this.fetchData();
+    }
   }
 
   // refresh table data on button click

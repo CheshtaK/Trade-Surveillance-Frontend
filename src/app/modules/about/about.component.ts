@@ -1,3 +1,5 @@
+import { GraphService } from './../../graph.service';
+import { TradeService } from './../../services/trade.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private graphService: GraphService) { }
   ngOnInit(): void {
   }
 
-  
+  disableGetTradeList(){
+    this.graphService.setNewTradeList(false);
+  }
 
 }

@@ -10,6 +10,7 @@ export class GraphService {
 
   // global variable which detects if the new trade is added or not
   private newTrade = false;
+  private newTradeList = true;
 
   currentLine = this.line.asObservable();
   currentHistogram = this.histogram.asObservable();
@@ -26,5 +27,12 @@ export class GraphService {
   }
   getNewTrade(): any {
     return this.newTrade;
+  }
+
+  setNewTradeList(val): any {
+    this.newTradeList = val;
+  }
+  getNewTradeList(): any {
+    return this.newTradeList;
   }
 }

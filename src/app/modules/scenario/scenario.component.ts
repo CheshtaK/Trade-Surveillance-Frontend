@@ -1,3 +1,4 @@
+import { GraphService } from './../../graph.service';
 import { TradeService } from '../../services/trade.service';
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import * as XLSX from 'xlsx';
@@ -18,7 +19,7 @@ export class ScenarioComponent implements OnInit {
 
   @Input() scenario: Trade[];
 
-  constructor(private tradeService: TradeService,
+  constructor(private graphService: GraphService,
     private datePipe:  DatePipe) {}
 
   ngOnInit(): void {
@@ -39,6 +40,10 @@ export class ScenarioComponent implements OnInit {
       'price',
       'brokerName'
     ];
+  }
+
+  disableGetTradeList(){
+    this.graphService.setNewTradeList(false);
   }
 
   @ViewChild('TABLE') table: ElementRef;

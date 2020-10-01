@@ -10,15 +10,65 @@ import { Trade } from '../../../models/Trade';
   styleUrls: ['./histogram.component.css']
 })
 export class HistogramComponent implements OnInit {
+  @Input()
+  dataSource: any;
   chartOptions: {};
   Highcharts = Highcharts;
   constructor(private tradeService: TradeService) {}
   trades: Trade[];
-  
 
   ngOnInit(): void {
-    //this.trades = this.tradeService.getTrades();
-    this.chartOptions = {
+    const data = this.tradesDone(this.dataSource);
+    console.log(data);
+
+    // call to char generator function
+    this.chartOptions = this.generateGraph(data);
+    HC_exporting(Highcharts);
+
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 300);
+  }
+
+  // function to get required data params for charts
+  tradesDone(tradesList): any {
+    let dataObj = [];
+    tradesList.forEach(trade => dataObj.push(this.dataFormatter(trade)));
+    console.log(dataObj);
+
+    const traderName = [...new Set(dataObj.map(item => item.traderName))];
+    let data = [];
+    traderName.forEach(name => {
+      let val = [];
+      dataObj.forEach(item => {
+        if (item.traderName === name) {
+          val.push(item.amount);
+        }
+      });
+      data.push({
+        name,
+        data: val
+      });
+    });
+
+    return data;
+  }
+
+  // function to format data object needed for chart
+
+  dataFormatter(trade): any {
+    const newTrade = {
+      traderName: trade.traderName,
+      amount: Number((trade.price * trade.quantity).toFixed(2)),
+      securityType: trade.securityType
+    };
+
+    return newTrade;
+  }
+
+  // function to generate chart from data object
+  generateGraph(data): any {
+    const graphObj = {
       chart: {
         backgroundColor: null,
         borderWidth: 0,
@@ -26,54 +76,54 @@ export class HistogramComponent implements OnInit {
       },
 
       title: {
-        text: 'Random data',
+        text: 'Trade Amount',
         style: {
           color: '#FFFFFF'
         }
       },
 
       subtitle: {
-        text: 'More random data',
+        text: 'Total Trades done',
         style: {
           color: '#FFFFFF'
         }
       },
+      yAxis: {
+        title: {
+          text: 'Transaction Price [Quantity X Amount in USD]',
+          style: {
+            color: '#FFFFFF'
+          }
+        }
+      },
+
       legend: {
         layout: 'vertical',
         align: 'right',
         verticalAlign: 'middle',
         itemStyle: {
           color: '#FFFFFF'
+        },
+        itemHoverStyle: {
+          color: 'grey'
         }
       },
 
       exporting: {
         enabled: true
       },
-
-      series: [
-        {
-          name: 'Citi Group',
-          
-          data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-        },
-        {
-          name: 'Raytheon',
-          
-          data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
-        },
-        {
-          name: 'LVMH',
-          
-          data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
-        },
-        {
-          name: 'Alibaba Group',
-         
-          data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-        }
-        
+      colors: [
+        '#058DC7',
+        '#50B432',
+        '#ED561B',
+        '#DDDF00',
+        '#24CBE5',
+        '#64E572',
+        '#FF9655',
+        '#FFF263',
+        '#6AF9C4'
       ],
+      series: data,
 
       responsive: {
         rules: [
@@ -92,11 +142,6 @@ export class HistogramComponent implements OnInit {
         ]
       }
     };
-
-    HC_exporting(Highcharts);
-
-    setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));
-    }, 300);
+    return graphObj;
   }
 }

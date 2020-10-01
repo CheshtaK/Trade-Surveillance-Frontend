@@ -55,6 +55,11 @@ export class LineComponent implements OnInit {
   }
 
   getArrays(trades: Trade[]): void {
+
+    this.facebook_prices = [];
+    this.apple_prices = [];
+    this.walmart_prices = [];
+
     for(let i=0; i<trades.length; i++){
       if(trades[i]['securityName'] === 'Facebook' && (trades[i]['securityType'] === 'ES')){
         this.facebook_prices.push(trades[i]['price']);
@@ -80,6 +85,8 @@ export class LineComponent implements OnInit {
         this.walmart_prices.push(trades[i]['price']);
       }
     }
+
+    console.log(this.facebook_prices);
 
     this.max_values.push(Math.max(...this.facebook_prices));
     this.max_values.push(Math.max(...this.apple_prices));
@@ -110,7 +117,7 @@ export class LineComponent implements OnInit {
       },
 
       subtitle: {
-        text: 'More random data',
+        text: 'Equity Shares & Futures',
         style: {
           color: '#FFFFFF'
         }
@@ -127,7 +134,7 @@ export class LineComponent implements OnInit {
 
       yAxis: {
         title: {
-          text: 'Stock Price',
+          text: 'Stock Price (in USD)',
           style: {
             color: '#FFFFFF'
           }

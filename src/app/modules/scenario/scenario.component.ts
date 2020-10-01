@@ -58,7 +58,7 @@ export class ScenarioComponent implements OnInit {
     for(let i=0; i<this.scenario.length; i++){
       var tempObj = [];
       
-      let time = this.datePipe.transform(this.scenario[i].timestamp, 'mediumTime');
+      let time = this.datePipe.transform(this.scenario[i].timestamp, 'mediumTime', 'UTC');
 
       tempObj.push(i+1);
       tempObj.push(time);

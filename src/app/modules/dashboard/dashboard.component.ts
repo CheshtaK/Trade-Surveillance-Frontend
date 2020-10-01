@@ -74,7 +74,7 @@ export class DashboardComponent implements OnInit {
       },
       error => {
         console.log(error);
-        this.spinner.hide();     //if error occured loading stops
+        this.spinner.hide(); //if error occured loading stops
       }
     );
 
@@ -91,6 +91,7 @@ export class DashboardComponent implements OnInit {
       response => {
         this.spinner.hide();
         this.dataSource = response;
+        console.log('fetch', this.dataSource);
         this.graph.setNewTrade(false);
       },
       error => {

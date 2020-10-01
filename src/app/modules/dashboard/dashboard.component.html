@@ -1,7 +1,7 @@
 <div class="dashboard-panel">
   <div class="graphs-panel">
     <div *ngIf="line">
-      <app-widget-line></app-widget-line>
+      <app-widget-line [dataSource]="dataSource"></app-widget-line>
     </div>
     <div *ngIf="!line">
       <app-widget-histogram></app-widget-histogram>

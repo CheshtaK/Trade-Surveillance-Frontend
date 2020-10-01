@@ -58,7 +58,7 @@ export class ScenarioComponent implements OnInit {
     for(let i=0; i<this.scenario.length; i++){
       var tempObj = [];
       
-      let time = this.datePipe.transform(this.scenario[i].timestamp, 'mediumTime');
+      let time = this.datePipe.transform(this.scenario[i].timestamp, 'mediumTime', 'UTC');
 
       tempObj.push(i+1);
       tempObj.push(time);
@@ -75,6 +75,11 @@ export class ScenarioComponent implements OnInit {
 
     const doc = new jsPDF();
 
+    var width = doc.internal.pageSize.getWidth();
+    var height = doc.internal.pageSize.getHeight();
+
+    // doc.addImage('../../../assets/img/watermark.png', 'PNG',0,0,100,100);
+
     autoTable(doc, {
       head: [
         [
@@ -89,7 +94,17 @@ export class ScenarioComponent implements OnInit {
           'Broker'
         ]
       ],
-      body: prepare
+      body: prepare,
+      didDrawPage: function (data){
+        doc.addImage('../../../assets/img/citi_logo.png', 'PNG', width - 31, 17, 17, 10);
+        doc.text('INTERNAL REPORT', width/2 - 25, 40);
+
+        doc.setFontSize(11);
+        doc.text(
+          'This document is confidential and for internal purposes only. Distribution is strictly prohibited.',
+                18, doc.internal.pageSize.height - 20);
+      },
+      margin: {top: 50}
     });
     doc.save('front_running' + '.pdf');
   }

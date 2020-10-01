@@ -33,7 +33,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
   exports: [
     ScenarioComponent,
     TableComponent,
-    
   ],
   providers: [
     DatePipe

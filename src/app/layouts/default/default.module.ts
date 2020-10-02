@@ -1,3 +1,4 @@
+import { DetectwashComponent } from './../../modules/detectwash/detectwash.component';
 import { MatIconModule } from '@angular/material/icon';
 import { TableComponent } from './../../shared/widgets/table/table.component';
 import { ScenarioComponent } from './../../modules/scenario/scenario.component';
@@ -9,10 +10,9 @@ import { DefaultComponent } from './default.component';
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
-import {MatTooltipModule} from '@angular/material/tooltip';
-
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     DashboardComponent,
     DetectComponent,
     ScenarioComponent,
+    DetectwashComponent
   ],
   imports: [
     CommonModule,
@@ -30,12 +31,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatIconModule,
     MatTooltipModule
   ],
-  exports: [
-    ScenarioComponent,
-    TableComponent,
-  ],
-  providers: [
-    DatePipe
-  ]
+  exports: [ScenarioComponent, TableComponent],
+  providers: [DatePipe]
 })
-export class DefaultModule { }
+export class DefaultModule {}

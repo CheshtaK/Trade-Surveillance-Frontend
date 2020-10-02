@@ -4,11 +4,11 @@ import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
-  selector: 'app-detect',
-  templateUrl: './detect.component.html',
-  styleUrls: ['./detect.component.css']
+  selector: 'app-detectwash',
+  templateUrl: './detectwash.component.html',
+  styleUrls: ['./detectwash.component.css']
 })
-export class DetectComponent implements OnInit {
+export class DetectwashComponent implements OnInit {
   scenarios: Trade[][] = [];
 
   dataSource: any = [];
@@ -31,7 +31,7 @@ export class DetectComponent implements OnInit {
   ngOnInit(): void {
     //loading starts
     this.spinner.show();
-    this.tradeService.getDetectedTrades().subscribe(
+    this.tradeService.getDetectedWashTrades().subscribe(
       response => {
         this.dataSource = response;
         // loading stops

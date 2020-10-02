@@ -22,22 +22,6 @@ export class SidebarComponent implements OnInit {
     this.graph.currentLine.subscribe(line => (this.line = line));
   }
 
-  detectFrontRunning(): void {
-    // this.tradeService.getDetectedTrades().subscribe(
-    //   (response) => {
-    //     console.log('front running trades');
-    //     this.dataSource = response;
-    //     console.log(this.dataSource);
-    //   },
-    //   (error) => console.log(error)
-    // )
-  }
-
-  // toggleGraph(){
-  //   console.log('toggle graph');
-  //   this.graph.changeGraph(this.line);
-  // }
-
   showHistogram(): void {
     this.graph.changeGraph(false, true);
   }

@@ -67,7 +67,7 @@ mat-nav-list,
   align-items: center;
 }
 .side-nav-logo {
-  min-height: 100px;
+  min-height: 90px;
   background: #9c27b0 !important;
   padding-top: 0;
 }
@@ -75,7 +75,7 @@ mat-nav-list,
 .logo {
   height: 75px;
   margin-left: 37%;
-  margin-top: 4%;
+  margin-top: 3%;
   animation: all linear 0.5s;
 }
 .logo:hover {

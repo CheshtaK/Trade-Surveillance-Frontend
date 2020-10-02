@@ -21,21 +21,17 @@ export class TradeService {
   tradesUrl = 'http://localhost:8080/getTradeList';
   detectedTradesUrl = 'http://localhost:8080/getFrontRunningTrades';
 
-  getTrades(): any {
-    // replace this with fetch request from services
-    // return this.http.get<Trade[]>(tradesUrl);
+  // function to get all trades from database
 
-    // this.trades = ELEMENT_DATA;
+  getTrades(): any {
     console.log('in get trades service');
     return this.http.get<Trade[]>(this.tradesUrl);
   }
 
+  // function to add new trade to data base as per user input
+
   addTrade(trade: Trade): any {
-    // replace the post call when api is done
-    // return this.http.post<Trade>(this.tradesUrl, todo, httpOptions);
-    console.log(trade);
     return this.http.post<Trade>(`${this.URL}/insertTrade`, trade, httpOptions);
-    // this.trades.push(trade);
   }
 
   // function to fetch existing trades
@@ -46,12 +42,13 @@ export class TradeService {
     return this.http.get<Trade>(`${this.URL}/fetchTradeList`);
   }
 
-  getDetectedTrades() {
-    // replace this with fetch request from services
-    // return this.http.get<Trade[]>(detectedTradesUrl);
-
-    // this.detectedTrades = DetectedElements;
-    // return this.detectedTrades;
+  // function which returns all the detetcted Front Running trades
+  getDetectedTrades(): any {
     return this.http.get(this.detectedTradesUrl);
+  }
+  // function which returns all the detetcted wash trades
+  getDetectedWashTrades(): any {
+    console.log('detect wash trades');
+    return this.http.get(`${this.URL}/getWashTrades`);
   }
 }

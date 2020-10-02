@@ -7,6 +7,8 @@
         placeholder="HH:MM:SS"
         formControlName="timestamp"
         required
+        type="time"
+        step="1"
       />
     </mat-form-field>
 
@@ -83,7 +85,9 @@
   <mat-form-field>
     <mat-select required formControlName="traderName">
       <mat-option>-- None --</mat-option>
-      <mat-option value="Bridgewater Associates">Bridgewater Associates</mat-option>
+      <mat-option value="Bridgewater Associates"
+        >Bridgewater Associates</mat-option
+      >
       <mat-option value="Citi Global Markets">Citi Global Markets</mat-option>
       <mat-option value="D.E. Shaw & Co.">D.E. Shaw & Co.</mat-option>
       <mat-option value="Vanguard Group">Vanguard Group</mat-option>

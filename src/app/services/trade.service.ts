@@ -51,4 +51,9 @@ export class TradeService {
     console.log('detect wash trades');
     return this.http.get(`${this.URL}/getWashTrades`);
   }
+
+  sendEmail(): any {
+    console.log('sent');
+    return this.http.get(`${this.URL}/sendEmail`);
+  }
 }

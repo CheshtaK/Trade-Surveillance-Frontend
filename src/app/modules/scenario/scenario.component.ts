@@ -7,6 +7,7 @@ import autoTable from 'jspdf-autotable';
 import { Trade } from '../../models/Trade';
 
 import { DatePipe } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -20,7 +21,9 @@ export class ScenarioComponent implements OnInit {
   @Input() scenario: Trade[];
 
   constructor(private graphService: GraphService,
-    private datePipe:  DatePipe) {}
+    private datePipe:  DatePipe,
+    private tradeService: TradeService,
+    private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     // code to be replaced once api is done
@@ -47,6 +50,19 @@ export class ScenarioComponent implements OnInit {
   }
 
   @ViewChild('TABLE') table: ElementRef;
+
+  sendMail() {
+    this.snackBar.open('Email sent!', 'Done', {
+      duration: 3000
+    })
+
+    this.tradeService.sendEmail().subscribe(
+      response => {
+        console.log('email sent', response);
+      },
+      err => console.log(err)
+    );
+  }
 
   exportAsExcel() {
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(

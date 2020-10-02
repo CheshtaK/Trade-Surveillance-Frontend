@@ -14,6 +14,12 @@
     color: palegreen;
 }
 
+.send_email{
+    padding: 10px;
+    padding-bottom: 0px;
+    color: cyan;
+}
+
 .dashboard_btn{
     padding: 10px;
     padding-bottom: 0px;

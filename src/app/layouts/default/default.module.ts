@@ -1,3 +1,4 @@
+import { AboutComponent } from './../../modules/about/about.component';
 import { DetectwashComponent } from './../../modules/detectwash/detectwash.component';
 import { MatIconModule } from '@angular/material/icon';
 import { TableComponent } from './../../shared/widgets/table/table.component';
@@ -14,15 +15,15 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
-
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     DefaultComponent,
     DashboardComponent,
     DetectComponent,
     ScenarioComponent,
-    DetectwashComponent
+    DetectwashComponent,
+    AboutComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +33,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatDividerModule,
     MatIconModule,
     MatTooltipModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatButtonModule
   ],
   exports: [ScenarioComponent, TableComponent],
   providers: [DatePipe]

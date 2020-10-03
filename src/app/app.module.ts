@@ -8,14 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './layouts/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AboutComponent } from './modules/about/about.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { MatDividerModule } from '@angular/material/divider';
+import { MatGridListModule } from '@angular/material/grid-list';
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AboutComponent],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,6 +27,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatIconModule,
     MatTooltipModule,
     HttpClientModule,
+    MatDividerModule,
+    MatGridListModule,
     LoggerModule.forRoot({
       serverLoggingUrl: '/users/logs',
       level: NgxLoggerLevel.DEBUG,

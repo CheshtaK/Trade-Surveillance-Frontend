@@ -1,8 +1,8 @@
-<!-- About Page -->
+<!-- About Page
 <mat-card>
   <mat-card-header>
     <mat-card-title>Project Background</mat-card-title>
-  </mat-card-header> 
+  </mat-card-header>
     <mat-card-header>
         <mat-card-subtitle>Front Running</mat-card-subtitle>
     </mat-card-header>
@@ -24,7 +24,7 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title>Project Scope</mat-card-title>
-      </mat-card-header>  
+      </mat-card-header>
     <mat-card-header>
         <mat-card-subtitle>Trade surveillance software which performs:</mat-card-subtitle>
       </mat-card-header>
@@ -43,11 +43,88 @@
         </p>
         <p>
             → Graphical representation of market manipulation
-        </p> 
+        </p>
       </mat-card-content>
 </mat-card>
 <br>
 
 <div style="display: flex; justify-content: flex-end">
 <button mat-raised-button color="primary" (click)="disableGetTradeList()" [routerLink]="['/dashboard']">Dashboard</button>
+</div> -->
+<div class="about">
+  <div class="header">
+    <img src="../../../assets/img/title1.png" alt="title" height="70px" />
+    <button
+      mat-raised-button
+      matTooltip="Go to dashboard"
+      color="primary"
+      (click)="disableGetTradeList()"
+      [routerLink]="['/dashboard']"
+    >
+      Dashboard
+    </button>
+    <mat-divider></mat-divider>
+  </div>
+
+  <br />
+  <div class="background">
+    <div class="background-head">
+      <h1>Project Background: What are we detecting ?</h1>
+      <!-- <p>What are we detecting ?</p> -->
+    </div>
+    <div class="washtrades">
+      <h2>Wash Trades</h2>
+      <mat-divider></mat-divider>
+      <p>
+        It is a process whereby a trader buys and sells a security for the
+        purpose of feeding misleading information to the market.
+      </p>
+    </div>
+    <div class="frontrunning">
+      <h2>Front Running</h2>
+      <mat-divider></mat-divider>
+      <p>
+        It is an illegal practice of purchasing a security based on advance
+        non-public information regarding an expected large transaction that will
+        affect the price of a security.
+      </p>
+    </div>
+  </div>
+  <br />
+  <div class="scope">
+    <div class="scope-head">
+      <h1>Poject Scope: What are we doing ?</h1>
+      <!-- <p>What are we doing ?</p> -->
+    </div>
+    <div class="trade-data-gen">
+      <span class="material-icons">
+        stacked_line_chart
+      </span>
+      <h3>Trade Data Generation</h3>
+    </div>
+    <div class="trade-data-display">
+      <span class="material-icons">
+        list_alt
+      </span>
+      <h3>Trade Data Display</h3>
+    </div>
+    <div class="manual-trade-entry">
+      <span class="material-icons">
+        post_add
+      </span>
+      <h3>Manual Trade Entry</h3>
+    </div>
+    <div class="detection">
+      <span class="material-icons">
+        find_in_page
+      </span>
+      <h3>Front Running & Wash Trade Detection</h3>
+    </div>
+    <div class="report-gen">
+      <span class="material-icons">
+        attach_email
+      </span>
+      <h3>Display & Send Report as Pdf and Excel via Email</h3>
+    </div>
+  </div>
 </div>

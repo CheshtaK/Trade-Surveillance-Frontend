@@ -5,13 +5,10 @@ import { Component, Input } from '@angular/core';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-
 export class TableComponent {
-  
   @Input()
   displayedColumns: string[];
 
   @Input()
   dataSource: any;
-
 }

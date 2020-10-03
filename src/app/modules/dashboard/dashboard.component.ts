@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit {
     private logger: NGXLogger,
     private spinner: NgxSpinnerService
   ) {
-    console.log('called');
+    // console.log('called');
   }
 
   ngDoCheck() {
@@ -58,10 +58,9 @@ export class DashboardComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    if(this.isNewTradeList === this.graph.getNewTradeList()){
+    if (this.isNewTradeList === this.graph.getNewTradeList()) {
       this.getAllData();
-    }
-    else{
+    } else {
       this.fetchData();
     }
   }

@@ -36,7 +36,7 @@ export class DetectwashComponent implements OnInit {
         this.dataSource = response;
         // loading stops
         this.spinner.hide();
-        console.log(this.dataSource.length);
+        // console.log(this.dataSource.length);
         // console.log(this.dataSource[0]['involvedTrades'][0]);
 
         length = this.dataSource.length;
@@ -44,7 +44,7 @@ export class DetectwashComponent implements OnInit {
           this.scenarios.push(this.dataSource[i]['involvedTrades']);
         }
 
-        console.log(this.scenarios);
+        // console.log(this.scenarios);
       },
       error => {
         console.log(error);

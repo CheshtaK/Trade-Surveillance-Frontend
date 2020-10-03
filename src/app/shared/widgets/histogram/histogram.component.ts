@@ -19,7 +19,7 @@ export class HistogramComponent implements OnInit {
 
   ngOnInit(): void {
     const data = this.tradesDone(this.dataSource);
-    console.log(data);
+    // console.log(data);
 
     // call to char generator function
     this.chartOptions = this.generateGraph(data);
@@ -34,7 +34,7 @@ export class HistogramComponent implements OnInit {
   tradesDone(tradesList): any {
     let dataObj = [];
     tradesList.forEach(trade => dataObj.push(this.dataFormatter(trade)));
-    console.log(dataObj);
+    // console.log(dataObj);
 
     const traderName = [...new Set(dataObj.map(item => item.traderName))];
     let data = [];
@@ -42,7 +42,7 @@ export class HistogramComponent implements OnInit {
       let val = [];
       dataObj.forEach(item => {
         if (item.traderName === name) {
-          val.push(item.amount);
+          val.push([item.time, item.amount]);
         }
       });
       data.push({
@@ -57,10 +57,18 @@ export class HistogramComponent implements OnInit {
   // function to format data object needed for chart
 
   dataFormatter(trade): any {
+    const time = new Date(trade.timestamp);
     const newTrade = {
       traderName: trade.traderName,
       amount: Number((trade.price * trade.quantity).toFixed(2)),
-      securityType: trade.securityType
+      securityType: trade.securityType,
+      time:
+        ((time.getUTCHours() % 12 || 12) < 10 ? '0' : '') +
+        (time.getUTCHours() % 12 || 12) +
+        ':' +
+        time.getUTCMinutes() +
+        ':' +
+        time.getUTCSeconds()
     };
 
     return newTrade;
@@ -99,6 +107,7 @@ export class HistogramComponent implements OnInit {
 
       legend: {
         layout: 'vertical',
+        title: { text: 'Trader', style: { color: 'gray' } },
         align: 'right',
         verticalAlign: 'middle',
         itemStyle: {
@@ -124,7 +133,9 @@ export class HistogramComponent implements OnInit {
         '#6AF9C4'
       ],
       series: data,
-
+      credits: {
+        enabled: false
+      },
       responsive: {
         rules: [
           {

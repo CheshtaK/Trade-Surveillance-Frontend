@@ -24,7 +24,7 @@ export class TradeService {
   // function to get all trades from database
 
   getTrades(): any {
-    console.log('in get trades service');
+    // console.log('in get trades service');
     return this.http.get<Trade[]>(this.tradesUrl);
   }
 
@@ -37,7 +37,7 @@ export class TradeService {
   // function to fetch existing trades
 
   fetchTrades(): any {
-    console.log('fetch trades working');
+    // console.log('fetch trades working');
 
     return this.http.get<Trade>(`${this.URL}/fetchTradeList`);
   }
@@ -48,12 +48,12 @@ export class TradeService {
   }
   // function which returns all the detetcted wash trades
   getDetectedWashTrades(): any {
-    console.log('detect wash trades');
+    // console.log('detect wash trades');
     return this.http.get(`${this.URL}/getWashTrades`);
   }
-
+  // functions to send mail
   sendEmail(): any {
-    console.log('sent');
+    // console.log('sent');
     return this.http.get(`${this.URL}/sendEmail`);
   }
 

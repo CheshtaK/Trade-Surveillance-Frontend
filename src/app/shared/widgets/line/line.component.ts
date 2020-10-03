@@ -11,7 +11,6 @@ import { Trade } from '../../../models/Trade';
   styleUrls: ['./line.component.css']
 })
 export class LineComponent implements OnInit {
-
   chartOptions: {};
   Highcharts = Highcharts;
   constructor() {}
@@ -20,11 +19,11 @@ export class LineComponent implements OnInit {
 
   trades: Trade[] = [];
 
-  @Input() set dataSource(value: Trade[]){
+  @Input() set dataSource(value: Trade[]) {
     this._dataSource.next(value);
   }
 
-  get dataSource(){
+  get dataSource() {
     return this._dataSource.getValue();
   }
 
@@ -36,14 +35,13 @@ export class LineComponent implements OnInit {
   min_values: number[] = [];
 
   max_value: number = 0;
-  min_value: number = 0
+  min_value: number = 0;
 
   ngOnInit(): void {
-
     this._dataSource.subscribe(x => {
       this.trades = x;
       this.getArrays(this.trades);
-    })
+    });
 
     this.getChartOptions(this.max_value, this.min_value);
 
@@ -55,38 +53,45 @@ export class LineComponent implements OnInit {
   }
 
   getArrays(trades: Trade[]): void {
-
     this.facebook_prices = [];
     this.apple_prices = [];
     this.walmart_prices = [];
 
-    for(let i=0; i<trades.length; i++){
-      if(trades[i]['securityName'] === 'Facebook' && (trades[i]['securityType'] === 'ES')){
+    for (let i = 0; i < trades.length; i++) {
+      if (
+        trades[i]['securityName'] === 'Facebook' &&
+        trades[i]['securityType'] === 'ES'
+      ) {
         this.facebook_prices.push(trades[i]['price']);
-      }
-
-      else if(trades[i]['securityName'] === 'Apple' && (trades[i]['securityType'] === 'ES')){
+      } else if (
+        trades[i]['securityName'] === 'Apple' &&
+        trades[i]['securityType'] === 'ES'
+      ) {
         this.apple_prices.push(trades[i]['price']);
-      }
-
-      else if(trades[i]['securityName'] === 'Walmart' && (trades[i]['securityType'] === 'ES')){
+      } else if (
+        trades[i]['securityName'] === 'Walmart' &&
+        trades[i]['securityType'] === 'ES'
+      ) {
         this.walmart_prices.push(trades[i]['price']);
-      }
-
-      else if(trades[i]['securityName'] === 'Facebook' && (trades[i]['securityType'] === 'Futures')){
+      } else if (
+        trades[i]['securityName'] === 'Facebook' &&
+        trades[i]['securityType'] === 'Futures'
+      ) {
         this.facebook_prices.push(trades[i]['price']);
-      }
-
-      else if(trades[i]['securityName'] === 'Apple' && (trades[i]['securityType'] === 'Futures')){
+      } else if (
+        trades[i]['securityName'] === 'Apple' &&
+        trades[i]['securityType'] === 'Futures'
+      ) {
         this.apple_prices.push(trades[i]['price']);
-      }
-
-      else if(trades[i]['securityName'] === 'Walmart' && (trades[i]['securityType'] === 'Futures')){
+      } else if (
+        trades[i]['securityName'] === 'Walmart' &&
+        trades[i]['securityType'] === 'Futures'
+      ) {
         this.walmart_prices.push(trades[i]['price']);
       }
     }
 
-    console.log(this.facebook_prices);
+    // console.log(this.facebook_prices);
 
     this.max_values.push(Math.max(...this.facebook_prices));
     this.max_values.push(Math.max(...this.apple_prices));
@@ -102,7 +107,7 @@ export class LineComponent implements OnInit {
     this.getChartOptions(this.max_value, this.min_value);
   }
 
-  getChartOptions(maximum, minimum): void{
+  getChartOptions(maximum, minimum): void {
     this.chartOptions = {
       chart: {
         backgroundColor: null,
@@ -122,14 +127,15 @@ export class LineComponent implements OnInit {
           color: '#FFFFFF'
         }
       },
-      
+
       legend: {
         layout: 'vertical',
         align: 'right',
         verticalAlign: 'middle',
         itemStyle: {
           color: '#FFFFFF'
-        }
+        },
+        title: { text: 'Security', style: { color: 'gray' } }
       },
 
       yAxis: {
@@ -139,8 +145,12 @@ export class LineComponent implements OnInit {
             color: '#FFFFFF'
           }
         },
-        min: minimum+1, max: maximum+1,
+        min: minimum + 1,
+        max: maximum + 1,
         tickInterval: 0.1
+      },
+      credits: {
+        enabled: false
       },
 
       exporting: {
@@ -150,7 +160,7 @@ export class LineComponent implements OnInit {
       series: [
         {
           name: 'Facebook',
-          data: this.facebook_prices,
+          data: this.facebook_prices
         },
         {
           name: 'Apple',
@@ -161,7 +171,7 @@ export class LineComponent implements OnInit {
           name: 'Walmart',
           data: this.walmart_prices,
           color: 'lightgreen'
-        },
+        }
       ],
 
       responsive: {

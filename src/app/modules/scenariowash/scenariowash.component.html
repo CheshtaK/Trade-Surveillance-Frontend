@@ -1,0 +1,29 @@
+<div #TABLEWASH>
+    <app-widget-table
+      [displayedColumns]="displayedColumns"
+      [dataSource]="scenario"
+    ></app-widget-table>
+  </div>
+  <br/>
+  <div style="display: flex; justify-content: flex-end">
+    <a
+      href="javascript:void(0)"
+      (click)="exportAsPDF()"
+      class="pdf_btn"
+      >Export as PDF</a
+    >
+    <a
+      href="javascript:void(0)"
+      (click)="exportAsExcel()"
+      class="excel_btn"
+      >Export as Excel</a
+    >
+    <a
+      href="javascript:void(0)"
+      (click)="sendMail()"
+      class="send_email"
+      >Send Email</a
+    >
+    <a (click)="disableGetTradeList()" [routerLink]="['/dashboard']" class="dashboard_btn">Dashboard</a>
+    
+  </div>  

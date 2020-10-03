@@ -56,4 +56,8 @@ export class TradeService {
     console.log('sent');
     return this.http.get(`${this.URL}/sendEmail`);
   }
+
+  sendEmailWash(): any {
+    return this.http.get(`${this.URL}/sendEmailWash`);
+  }
 }

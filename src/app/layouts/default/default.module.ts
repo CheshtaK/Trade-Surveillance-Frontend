@@ -1,3 +1,4 @@
+import { ScenariowashComponent } from './../../modules/scenariowash/scenariowash.component';
 import { AboutComponent } from './../../modules/about/about.component';
 import { DetectwashComponent } from './../../modules/detectwash/detectwash.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -23,7 +24,8 @@ import { MatButtonModule } from '@angular/material/button';
     DetectComponent,
     ScenarioComponent,
     DetectwashComponent,
-    AboutComponent
+    AboutComponent,
+    ScenariowashComponent
   ],
   imports: [
     CommonModule,

@@ -52,7 +52,7 @@
 <button mat-raised-button color="primary" (click)="disableGetTradeList()" [routerLink]="['/dashboard']">Dashboard</button>
 </div> -->
 <div class="about">
-  <div class="header">
+  <!-- <div class="header">
     <img src="../../../assets/img/title1.png" alt="title" height="70px" />
     <button
       mat-raised-button
@@ -64,12 +64,22 @@
       Dashboard
     </button>
     <mat-divider></mat-divider>
-  </div>
-
+  </div> -->
+  
   <br />
   <div class="background">
     <div class="background-head">
       <h1>Project Background: What are we detecting ?</h1>
+      <button
+      mat-raised-button
+      matTooltip="Go to dashboard"
+      color="primary"
+      style="float: right;"
+      (click)="disableGetTradeList()"
+      [routerLink]="['/dashboard']"
+    >
+      Dashboard
+    </button>
       <!-- <p>What are we detecting ?</p> -->
     </div>
     <div class="washtrades">
@@ -124,7 +134,7 @@
       <span class="material-icons">
         attach_email
       </span>
-      <h3>Display & Send Report as Pdf and Excel via Email</h3>
+      <h3>Display & Send Report as Pdf via Email</h3>
     </div>
   </div>
 </div>

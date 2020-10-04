@@ -1,13 +1,16 @@
+<!-- Sidebar -->
 <div class="sidenav">
   <div class="content">
     <mat-accordion class="example-headers-align">
+      
+      <!-- Project logo -->
       <div class="side-nav-logo">
         <a mat-list-item matLine [routerLink]="['/']">
           <img class="logo" src="../../../../assets/img/logo.png" alt="Logo" />
         </a>
       </div>
-      <!-- <section class="nav-item">Line chart</section>
-      <section class="nav-item">Bar chart</section> -->
+      
+      <!-- Chart options -->
       <div class="charts">
         <mat-nav-list class="lable-chart" (click)="showLineChart()">
           <a mat-list-item matLine>
@@ -23,15 +26,18 @@
         </mat-nav-list>
       </div>
 
+      <!-- Add new trade panel -->
       <mat-expansion-panel class="add-new-tx nav-item">
         <mat-expansion-panel-header class="expansion-header">
           <mat-panel-title
             ><p class="label-nav">Add New Trade</p></mat-panel-title
           >
-          <!-- <mat-panel-description> Add </mat-panel-description> -->
+
         </mat-expansion-panel-header>
         <app-addpanel (addTrade)="addTrade($event)"></app-addpanel>
       </mat-expansion-panel>
+      
+      <!-- Detect front running option -->
       <mat-nav-list>
         <a mat-list-item [routerLink]="['/dashboard/detectfront']">
           <span matLine
@@ -40,6 +46,8 @@
           <mat-icon>search</mat-icon>
         </a>
       </mat-nav-list>
+      
+      <!-- Detect wash trade option -->
       <mat-nav-list>
         <a mat-list-item [routerLink]="['/dashboard/detectwash']">
           <span matLine
@@ -51,6 +59,7 @@
     </mat-accordion>
   </div>
 
+  <!-- About page option -->
   <div class="about">
     <mat-nav-list>
       <a mat-list-item [routerLink]="['/dashboard/about']">

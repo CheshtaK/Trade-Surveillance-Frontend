@@ -1,12 +1,17 @@
 <app-loader></app-loader>
+
+<!-- Main trade table -->
 <div class="main">
   <div class="container mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
+      
+      <!-- Trade ID -->
       <ng-container matColumnDef="trade_id">
         <th mat-header-cell *matHeaderCellDef>Trade ID</th>
         <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
       </ng-container>
 
+      <!-- Trade Time -->
       <ng-container matColumnDef="timestamp">
         <th mat-header-cell *matHeaderCellDef>Trade Time (UTC)</th>
         <td mat-cell *matCellDef="let element">
@@ -14,36 +19,43 @@
         </td>
       </ng-container>
 
+      <!-- Trade Type -->
       <ng-container matColumnDef="type">
         <th mat-header-cell *matHeaderCellDef>Trade Type (Buy/Sell)</th>
         <td mat-cell *matCellDef="let element">{{ element.type }}</td>
       </ng-container>
 
+      <!-- Trader name -->
       <ng-container matColumnDef="traderName">
         <th mat-header-cell *matHeaderCellDef>Trader</th>
         <td mat-cell *matCellDef="let element">{{ element.traderName }}</td>
       </ng-container>
 
+      <!-- Security name -->
       <ng-container matColumnDef="securityName">
         <th mat-header-cell *matHeaderCellDef>Security</th>
         <td mat-cell *matCellDef="let element">{{ element.securityName }}</td>
       </ng-container>
 
+      <!-- Security type -->
       <ng-container matColumnDef="securityType">
         <th mat-header-cell *matHeaderCellDef>Security Type</th>
         <td mat-cell *matCellDef="let element">{{ element.securityType }}</td>
       </ng-container>
 
+      <!-- Quantity -->
       <ng-container matColumnDef="quantity">
         <th mat-header-cell *matHeaderCellDef>Quantity</th>
         <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
       </ng-container>
 
+      <!-- Price -->
       <ng-container matColumnDef="price">
         <th mat-header-cell *matHeaderCellDef>Price (USD)</th>
         <td mat-cell *matCellDef="let element">{{ element.price }}</td>
       </ng-container>
 
+      <!-- Broker name -->
       <ng-container matColumnDef="brokerName">
         <th mat-header-cell *matHeaderCellDef>Broker</th>
         <td mat-cell *matCellDef="let element">{{ element.brokerName }}</td>

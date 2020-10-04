@@ -2,7 +2,6 @@ import { BehaviorSubject } from 'rxjs';
 import { Component, OnInit, Input } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
-import { TradeService } from 'src/app/services/trade.service';
 import { Trade } from '../../../models/Trade';
 
 @Component({
@@ -10,30 +9,40 @@ import { Trade } from '../../../models/Trade';
   templateUrl: './line.component.html',
   styleUrls: ['./line.component.css']
 })
+
 export class LineComponent implements OnInit {
+
+  // chart options to define various chart parameters
   chartOptions: {};
   Highcharts = Highcharts;
   constructor() {}
 
+  // get table from the dashboard page
   private _dataSource = new BehaviorSubject<Trade[]>([]);
 
+  // trade list to display
   trades: Trade[] = [];
 
+  // set data source variable
   @Input() set dataSource(value: Trade[]) {
     this._dataSource.next(value);
   }
 
+  // getter for data source
   get dataSource() {
     return this._dataSource.getValue();
   }
 
+  // store input values for y axis
   facebook_prices: number[] = [];
   apple_prices: number[] = [];
   walmart_prices: number[] = [];
 
+  // store max and min values of all the y values
   max_values: number[] = [];
   min_values: number[] = [];
 
+  // final max and min to set the y axis range
   max_value: number = 0;
   min_value: number = 0;
 
@@ -43,6 +52,7 @@ export class LineComponent implements OnInit {
       this.getArrays(this.trades);
     });
 
+    // call to chart generator function
     this.getChartOptions(this.max_value, this.min_value);
 
     HC_exporting(Highcharts);
@@ -52,6 +62,7 @@ export class LineComponent implements OnInit {
     }, 300);
   }
 
+  // function to store the y axis values
   getArrays(trades: Trade[]): void {
     this.facebook_prices = [];
     this.apple_prices = [];
@@ -91,8 +102,7 @@ export class LineComponent implements OnInit {
       }
     }
 
-    // console.log(this.facebook_prices);
-
+    // calculate max and min for y axis range
     this.max_values.push(Math.max(...this.facebook_prices));
     this.max_values.push(Math.max(...this.apple_prices));
     this.max_values.push(Math.max(...this.walmart_prices));
@@ -107,6 +117,7 @@ export class LineComponent implements OnInit {
     this.getChartOptions(this.max_value, this.min_value);
   }
 
+  // function to define chart parameters
   getChartOptions(maximum, minimum): void {
     this.chartOptions = {
       chart: {
@@ -160,7 +171,7 @@ export class LineComponent implements OnInit {
       series: [
         {
           name: 'Facebook',
-          data: this.facebook_prices
+          data: this.facebook_prices,
         },
         {
           name: 'Apple',

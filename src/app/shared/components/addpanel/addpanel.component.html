@@ -1,4 +1,7 @@
+<!-- Add new trade panel -->
 <form [formGroup]="newTrade" (ngSubmit)="getNewTrade()">
+  
+  <!-- Time field -->
   <div class="time-type-row">
     <mat-form-field>
       <mat-label>Time</mat-label>
@@ -12,6 +15,7 @@
       />
     </mat-form-field>
 
+    <!-- Trade type field -->
     <mat-form-field>
       <mat-select required formControlName="type">
         <mat-option>-- None --</mat-option>
@@ -22,6 +26,8 @@
     </mat-form-field>
   </div>
   <div class="securities-row">
+    
+    <!-- Security field -->
     <mat-form-field>
       <mat-select required formControlName="securityName">
         <mat-option>-- None --</mat-option>
@@ -31,6 +37,8 @@
       </mat-select>
       <mat-label>Security</mat-label>
     </mat-form-field>
+    
+    <!-- Security type field -->
     <mat-form-field>
       <mat-select required formControlName="securityType">
         <mat-option>-- None --</mat-option>
@@ -43,6 +51,8 @@
     </mat-form-field>
   </div>
   <div class="numbers-row">
+    
+    <!-- Quantity field -->
     <mat-form-field>
       <mat-label>Quantity</mat-label>
       <input
@@ -56,6 +66,8 @@
         Quantity should be greater than 0
       </mat-error>
     </mat-form-field>
+    
+    <!-- Price field -->
     <mat-form-field>
       <mat-label>Price</mat-label>
       <input
@@ -71,6 +83,7 @@
     </mat-form-field>
   </div>
 
+  <!-- Broker name field -->
   <mat-form-field>
     <mat-select required formControlName="brokerName">
       <mat-option>-- None --</mat-option>
@@ -82,6 +95,8 @@
     </mat-select>
     <mat-label>Broker Name</mat-label>
   </mat-form-field>
+  
+  <!-- Trader name field -->
   <mat-form-field>
     <mat-select required formControlName="traderName">
       <mat-option>-- None --</mat-option>
@@ -95,6 +110,7 @@
     <mat-label>Trader Name</mat-label>
   </mat-form-field>
 
+  <!-- Add new trade button -->
   <button
     class="add-trade-btn"
     type="submit"

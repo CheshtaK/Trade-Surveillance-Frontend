@@ -1,3 +1,4 @@
+<!-- Scenario table -->
 <div #TABLE>
   <app-widget-table
     [displayedColumns]="displayedColumns"
@@ -6,24 +7,32 @@
 </div>
 <br/>
 <div style="display: flex; justify-content: flex-end">
+  
+  <!-- Export as PDF -->
   <a
     href="javascript:void(0)"
     (click)="exportAsPDF()"
     class="pdf_btn"
     >Export as PDF</a
   >
+  
+  <!-- Export as Excel -->
   <a
     href="javascript:void(0)"
     (click)="exportAsExcel()"
     class="excel_btn"
     >Export as Excel</a
   >
+  
+  <!-- Send Email -->
   <a
     href="javascript:void(0)"
     (click)="sendMail()"
     class="send_email"
     >Send Email</a
   >
+  
+  <!-- Redirect to dashboard -->
   <a (click)="disableGetTradeList()" [routerLink]="['/dashboard']" class="dashboard_btn">Dashboard</a>
   
 </div>

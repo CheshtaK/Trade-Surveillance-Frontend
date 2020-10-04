@@ -1,5 +1,4 @@
-import { GraphService } from './../../graph.service';
-import { TradeService } from './../../services/trade.service';
+import { GraphService } from './../../services/graph.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -13,6 +12,7 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // disable new trade list generation
   disableGetTradeList(){
     this.graphService.setNewTradeList(false);
   }

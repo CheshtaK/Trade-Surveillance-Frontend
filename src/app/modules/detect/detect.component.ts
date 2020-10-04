@@ -9,9 +9,14 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./detect.component.css']
 })
 export class DetectComponent implements OnInit {
+  
+  // to store detected scenarios
   scenarios: Trade[][] = [];
 
+  // data for table
   dataSource: any = [];
+  
+  // columns to be displayed in table
   displayedColumns: string[] = [
     'trade_id',
     'timestamp',
@@ -23,28 +28,27 @@ export class DetectComponent implements OnInit {
     'price',
     'brokerName'
   ];
+  
   constructor(
     private tradeService: TradeService,
     private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
+    
     //loading starts
     this.spinner.show();
     this.tradeService.getDetectedTrades().subscribe(
       response => {
         this.dataSource = response;
+    
         // loading stops
         this.spinner.hide();
-        // console.log(this.dataSource.length);
-        // console.log(this.dataSource[0]['involvedTrades'][0]);
-
         length = this.dataSource.length;
         for (let i = 0; i < length; i++) {
           this.scenarios.push(this.dataSource[i]['involvedTrades']);
         }
 
-        // console.log(this.scenarios);
       },
       error => {
         console.log(error);

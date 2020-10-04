@@ -1,5 +1,8 @@
+<!-- Main Dashboard Page -->
 <div class="dashboard-panel">
   <div class="graphs-panel">
+    
+    <!-- Toggle for line and histogram -->
     <div *ngIf="line">
       <app-widget-line [dataSource]="dataSource"></app-widget-line>
     </div>
@@ -7,6 +10,8 @@
       <app-widget-histogram [dataSource]="dataSource"> </app-widget-histogram>
     </div>
   </div>
+
+  <!-- Refresh button to generate new trades -->
   <div class="refresh-btn-container">
     <mat-divider></mat-divider>
     <div
@@ -22,6 +27,7 @@
     </div>
   </div>
 
+  <!-- Main trade table -->
   <div class="table-panel">
     <app-widget-table
       [displayedColumns]="displayedColumns"
@@ -29,19 +35,3 @@
     ></app-widget-table>
   </div>
 </div>
-
-<!-- <div class="refresh">
-    <h3>
-      Trades Table
-    </h3>
-
-    <button
-      mat-raised-button
-      (click)="refreshTable()"
-      class="refresh-btn"
-      color="accent"
-      matTooltip="Generate new trades"
-    >
-      Refresh
-    </button>
-  </div> -->

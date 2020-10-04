@@ -1,75 +1,11 @@
-<!-- About Page
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Project Background</mat-card-title>
-  </mat-card-header>
-    <mat-card-header>
-        <mat-card-subtitle>Front Running</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-        <p style='margin-left: 15px;'>
-        It is an illegal practice of purchasing a security based on advance non-public information regarding an expected large transaction that will affect the price of a security.
-        </p>
-    </mat-card-content>
-    <mat-card-header>
-        <mat-card-subtitle>Wash Trade</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-        <p style='margin-left: 15px;'>
-          It is a process whereby a trader buys and sells a security for the purpose of feeding misleading information to the market.
-        </p>
-    </mat-card-content>
-</mat-card>
-<br>
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Project Scope</mat-card-title>
-      </mat-card-header>
-    <mat-card-header>
-        <mat-card-subtitle>Trade surveillance software which performs:</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-            → Random trade generation
-        </p>
-        <p>
-            → Manual trade entry
-        </p>
-        <p>
-            → Front running detection
-        </p>
-        <p>
-            → Wash Trade detection
-        </p>
-        <p>
-            → Graphical representation of market manipulation
-        </p>
-      </mat-card-content>
-</mat-card>
-<br>
-
-<div style="display: flex; justify-content: flex-end">
-<button mat-raised-button color="primary" (click)="disableGetTradeList()" [routerLink]="['/dashboard']">Dashboard</button>
-</div> -->
-<div class="about">
-  <!-- <div class="header">
-    <img src="../../../assets/img/title1.png" alt="title" height="70px" />
-    <button
-      mat-raised-button
-      matTooltip="Go to dashboard"
-      color="primary"
-      (click)="disableGetTradeList()"
-      [routerLink]="['/dashboard']"
-    >
-      Dashboard
-    </button>
-    <mat-divider></mat-divider>
-  </div> -->
-  
+<!-- About Page -->
+<div class="about">  
   <br />
   <div class="background">
     <div class="background-head">
       <h1>Project Background: What are we detecting ?</h1>
+      
+      <!-- Router for dashboard -->
       <button
       mat-raised-button
       matTooltip="Go to dashboard"
@@ -80,7 +16,6 @@
     >
       Dashboard
     </button>
-      <!-- <p>What are we detecting ?</p> -->
     </div>
     <div class="washtrades">
       <h2>Wash Trades</h2>
@@ -104,7 +39,6 @@
   <div class="scope">
     <div class="scope-head">
       <h1>Poject Scope: What are we doing ?</h1>
-      <!-- <p>What are we doing ?</p> -->
     </div>
     <div class="trade-data-gen">
       <span class="material-icons">

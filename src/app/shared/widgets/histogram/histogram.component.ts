@@ -10,18 +10,22 @@ import { Trade } from '../../../models/Trade';
   styleUrls: ['./histogram.component.css']
 })
 export class HistogramComponent implements OnInit {
-  @Input()
-  dataSource: any;
+  
+  // get table from the dashboard page
+  @Input() dataSource: any;
+  
+  // chart options to define various chart parameters
   chartOptions: {};
   Highcharts = Highcharts;
-  constructor(private tradeService: TradeService) {}
+  constructor() {}
+  
+  // trade list to display
   trades: Trade[];
 
   ngOnInit(): void {
     const data = this.tradesDone(this.dataSource);
-    // console.log(data);
 
-    // call to char generator function
+    // call to chart generator function
     this.chartOptions = this.generateGraph(data);
     HC_exporting(Highcharts);
 
@@ -34,7 +38,6 @@ export class HistogramComponent implements OnInit {
   tradesDone(tradesList): any {
     let dataObj = [];
     tradesList.forEach(trade => dataObj.push(this.dataFormatter(trade)));
-    // console.log(dataObj);
 
     const traderName = [...new Set(dataObj.map(item => item.traderName))];
     let data = [];
@@ -45,6 +48,7 @@ export class HistogramComponent implements OnInit {
           val.push([item.time, item.amount]);
         }
       });
+      console.log(val);
       data.push({
         name,
         data: val
@@ -55,7 +59,6 @@ export class HistogramComponent implements OnInit {
   }
 
   // function to format data object needed for chart
-
   dataFormatter(trade): any {
     const time = new Date(trade.timestamp);
     const newTrade = {

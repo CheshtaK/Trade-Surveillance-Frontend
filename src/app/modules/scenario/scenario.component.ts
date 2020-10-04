@@ -1,4 +1,4 @@
-import { GraphService } from './../../graph.service';
+import { GraphService } from './../../services/graph.service';
 import { TradeService } from '../../services/trade.service';
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import * as XLSX from 'xlsx';
@@ -16,8 +16,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./scenario.component.css']
 })
 export class ScenarioComponent implements OnInit {
+  
+  // columns to be displayed in table
   displayedColumns: string[];
 
+  // get the scenario from detect page
   @Input() scenario: Trade[];
 
   constructor(private graphService: GraphService,
@@ -26,11 +29,6 @@ export class ScenarioComponent implements OnInit {
     private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
-    // code to be replaced once api is done
-    // this.tradeService.detectedTrades().subscribe((trades) => {
-    // this.dataSource = trades;
-
-    // this.detectedTrades = this.tradeService.getDetectedTrades();
 
     this.displayedColumns = [
       'trade_id',
@@ -45,17 +43,22 @@ export class ScenarioComponent implements OnInit {
     ];
   }
 
+  // disable generating a new trade list
   disableGetTradeList(){
     this.graphService.setNewTradeList(false);
   }
 
   @ViewChild('TABLE') table: ElementRef;
 
+  // send email function
   sendMail() {
+
+    // display a snackbar for email sent confirmation
     this.snackBar.open('Email sent!', 'Done', {
       duration: 3000
     })
 
+    // call the send mail service
     this.tradeService.sendEmail().subscribe(
       response => {
         console.log('email sent', response);
@@ -64,21 +67,25 @@ export class ScenarioComponent implements OnInit {
     );
   }
 
+  // export as excel function
   exportAsExcel() {
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(
       this.table.nativeElement
     );
+    
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
     XLSX.writeFile(wb, 'front_running.xlsx');
   }
 
+  // export as pdf function
   exportAsPDF() {
     var prepare = [];
 
     for(let i=0; i<this.scenario.length; i++){
       var tempObj = [];
       
+      // format the timestamp to display only time
       let time = this.datePipe.transform(this.scenario[i].timestamp, 'mediumTime', 'UTC');
 
       tempObj.push(i+1);
@@ -95,12 +102,9 @@ export class ScenarioComponent implements OnInit {
     }
 
     const doc = new jsPDF();
-
     var width = doc.internal.pageSize.getWidth();
-    var height = doc.internal.pageSize.getHeight();
 
-    // doc.addImage('../../../assets/img/watermark.png', 'PNG',0,0,100,100);
-
+    // define the pdf format
     autoTable(doc, {
       head: [
         [
@@ -127,6 +131,8 @@ export class ScenarioComponent implements OnInit {
       },
       margin: {top: 50}
     });
+    
+    // save pdf
     doc.save('front_running' + '.pdf');
   }
 }

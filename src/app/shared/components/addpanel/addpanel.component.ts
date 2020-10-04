@@ -1,18 +1,25 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Trade } from '../../../models/Trade';
+
 @Component({
   selector: 'app-addpanel',
   templateUrl: './addpanel.component.html',
   styleUrls: ['./addpanel.component.css']
 })
+
 export class AddpanelComponent implements OnInit {
+
+  // new trade fetched from the html form
   newTrade: FormGroup;
+
+  // emit add trade event
   @Output() addTrade: EventEmitter<any> = new EventEmitter();
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
+    
+    // initialize new trade
     this.newTrade = this.fb.group({
       timestamp: '',
       type: '',
@@ -23,13 +30,14 @@ export class AddpanelComponent implements OnInit {
       brokerName: '',
       traderName: ''
     });
-    // this.newTrade.valueChanges.subscribe(console.log);
   }
 
   // function to show error if quantity is negative
   get quantity(): any {
     return this.newTrade.get('quantity');
   }
+
+  // function to show error if price is negative
   get price(): any {
     return this.newTrade.get('price');
   }

@@ -1,10 +1,8 @@
+import { GraphService } from './../../services/graph.service';
 import { TradeService } from '../../services/trade.service';
-import { GraphService } from './../../graph.service';
 import { Component, OnInit } from '@angular/core';
 
 import { Trade } from '../../models/Trade';
-
-import { NGXLogger } from 'ngx-logger';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -13,7 +11,11 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  
+  // data for table
   dataSource: Trade[] = [];
+  
+  // columns to be displayed in table
   displayedColumns: string[] = [
     'trade_id',
     'timestamp',
@@ -26,29 +28,23 @@ export class DashboardComponent implements OnInit {
     'brokerName'
   ];
 
-  index: string[] = [
-    'timestamp',
-    'type',
-    'traderName',
-    'securityName',
-    'securityType',
-    'quantity',
-    'price',
-    'brokerName'
-  ];
-
+  // is line graph
   line: boolean;
+  
+  // is histogram
   histogram: boolean;
+  
+  // has a new trade been addded
   isNewTrade = false;
+
+  // generate a new trade list or fetch old one
   isNewTradeList = true;
 
   constructor(
     private graph: GraphService,
     private tradeService: TradeService,
-    private logger: NGXLogger,
     private spinner: NgxSpinnerService
   ) {
-    // console.log('called');
   }
 
   ngDoCheck() {
@@ -57,7 +53,9 @@ export class DashboardComponent implements OnInit {
       this.fetchData();
     }
   }
+  
   ngOnInit(): void {
+    // check if a new trade list should be generated or fetch the old one
     if (this.isNewTradeList === this.graph.getNewTradeList()) {
       this.getAllData();
     } else {
@@ -72,15 +70,18 @@ export class DashboardComponent implements OnInit {
 
   // function to get all data from backend and pass it to ui
   getAllData(): void {
+    
     // laoding starts
     this.spinner.show();
     this.tradeService.getTrades().subscribe(
       response => {
+    
         // loading stops
         this.spinner.hide();
         this.dataSource = response;
       },
       error => {
+    
         console.log(error);
         this.spinner.hide(); //if error occured loading stops
       }

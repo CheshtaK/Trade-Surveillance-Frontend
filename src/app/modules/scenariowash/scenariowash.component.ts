@@ -1,4 +1,4 @@
-import { GraphService } from './../../graph.service';
+import { GraphService } from './../../services/graph.service';
 import { TradeService } from '../../services/trade.service';
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import * as XLSX from 'xlsx';
@@ -16,8 +16,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ScenariowashComponent implements OnInit {
 
+  // columns to be displayed in table
   displayedColumns: string[];
 
+  // get the scenario from detect page
   @Input() scenario: Trade[];
 
   constructor(private graphService: GraphService,
@@ -26,11 +28,6 @@ export class ScenariowashComponent implements OnInit {
     private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
-    // code to be replaced once api is done
-    // this.tradeService.detectedTrades().subscribe((trades) => {
-    // this.dataSource = trades;
-
-    // this.detectedTrades = this.tradeService.getDetectedTrades();
 
     this.displayedColumns = [
       'trade_id',
@@ -45,17 +42,22 @@ export class ScenariowashComponent implements OnInit {
     ];
   }
 
+  // disable generating a new trade list
   disableGetTradeList(){
     this.graphService.setNewTradeList(false);
   }
 
   @ViewChild('TABLEWASH') table: ElementRef;
 
+  // send email function
   sendMail() {
+    
+    // display a snackbar for email sent confirmation
     this.snackBar.open('Email sent!', 'Done', {
       duration: 3000
     })
 
+    // call the send mail service
     this.tradeService.sendEmailWash().subscribe(
       response => {
         console.log('email sent', response);
@@ -64,6 +66,7 @@ export class ScenariowashComponent implements OnInit {
     );
   }
 
+  // export as excel function
   exportAsExcel() {
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(
       this.table.nativeElement
@@ -73,12 +76,14 @@ export class ScenariowashComponent implements OnInit {
     XLSX.writeFile(wb, 'wash_trade.xlsx');
   }
 
+  // export as pdf function
   exportAsPDF() {
     var prepare = [];
 
     for(let i=0; i<this.scenario.length; i++){
       var tempObj = [];
       
+      // format the timestamp to display only time
       let time = this.datePipe.transform(this.scenario[i].timestamp, 'mediumTime', 'UTC');
 
       tempObj.push(i+1);
@@ -95,12 +100,9 @@ export class ScenariowashComponent implements OnInit {
     }
 
     const doc = new jsPDF();
-
     var width = doc.internal.pageSize.getWidth();
-    var height = doc.internal.pageSize.getHeight();
 
-    // doc.addImage('../../../assets/img/watermark.png', 'PNG',0,0,100,100);
-
+    // define the pdf format
     autoTable(doc, {
       head: [
         [
@@ -127,6 +129,8 @@ export class ScenariowashComponent implements OnInit {
       },
       margin: {top: 50}
     });
+
+    // save pdf
     doc.save('wash_trade' + '.pdf');
   }
 
